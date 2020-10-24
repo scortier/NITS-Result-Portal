@@ -27,10 +27,12 @@ userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign(
     {
-      exp: process.env.JWT_EXPIRE,
-      data: user._id.toString(),
+      _id: user._id.toString(),
     },
-    process.env.JWT_SECRET
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_EXPIRE,
+    }
   );
   return token;
 };
