@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const express = require("express");
 dotenv.config({ path: "./config.env" });
+const cookieParser = require("cookie-parser");
 
 const userRouter = require("./routes/userRoutes");
 const authRouter = require("./routes/authRoutes");
@@ -11,6 +12,7 @@ const app = express();
 // body parser input limit
 app.use(express.json({ limit: "50kb" }));
 app.use(express.urlencoded({ extended: true, limit: "50kb" }));
+app.use(cookieParser());
 
 app.set("view engine", "ejs");
 
