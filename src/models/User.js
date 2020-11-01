@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema(
   {
     sch_id: {
       type: Number,
+      unique: true
     },
     password: {
       type: String,
@@ -13,7 +14,7 @@ const userSchema = new mongoose.Schema(
     },
     name: {
       type: String,
-      match: [/^[a-zA-Z0-9]+$/, "is invalid"],
+      match: [/^([a-z']+(-| )?)+$/i, "is invalid"],
       required: [true, "is required"],
     },
   },

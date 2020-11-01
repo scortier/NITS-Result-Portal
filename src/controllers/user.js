@@ -7,10 +7,13 @@ exports.login = async(req, res, next) => {
        let user=await User.findByCredentials(sch_id,password);
        const JWTtoken=await user.generateAuthToken();
        user=user.toJSON();
-       res.status(200).json({
-           JWTtoken,
+       res.cookie("authorization", JWTtoken, {
+        maxAge: 24 * 60 * 60 * 1000,
+        httpOnly: false,
+        })
+       res.status(200).json(
            user
-       });
+       );
         
     } catch (error) {
         next(error)
@@ -27,10 +30,13 @@ exports.register = async (req, res, next) => {
        });
        const JWTtoken= await user.generateAuthToken();
        user=await user.toJSON();
-       res.status(201).json({
-           user,
-           JWTtoken
+       res.cookie("authorization", JWTtoken, {
+           maxAge: 24 * 60 * 60 * 1000,
+           httpOnly: false,
        })
+       res.status(201).json(
+           user
+       )
     } catch (error) {
         next(error)
     }
