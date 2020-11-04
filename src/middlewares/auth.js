@@ -4,10 +4,9 @@ const jwt=require("jsonwebtoken");
 module.exports= async(req,res,next)=>{
 
     try{
-        const {authorization}=req.headers;
-        const  token =authorization.replace("Bearer ","");
-        const userInfo=await jwt.verify(token,process.env.JWT_SECRET);
-        const user=await User.findById(userInfo._id)
+        const token = req.cookies.authorization
+        const userInfo = await jwt.verify(token,process.env.JWT_SECRET);
+        const user = await User.findById(userInfo._id)
         if(!user){
             throw new Error("User not found") 
         }
