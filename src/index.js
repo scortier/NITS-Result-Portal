@@ -17,7 +17,6 @@ const routes = require("./routes");
 app.use(express.json());
 app.use(cookieParser("secret_passcode"));
 app.use(compression());
-app.use(cors());
 
 app.use(
   session({
