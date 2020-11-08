@@ -1,1 +1,1 @@
-#  Our-NITS-Result-Portal
+# NITS-Result-Portal
