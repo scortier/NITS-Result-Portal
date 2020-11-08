@@ -15,7 +15,7 @@ module.exports = (allowedRoles) => {
                userInfo.username === process.env.OWNER_USERNAME && 
                userInfo.password === process.env.OWNER_PASSWORD
             )  {
-                next()
+                next();
             } else {
                 // For another admin get the document from db and verify for each allowed role 
                 const admin = await Admin.findById(userInfo._id)
