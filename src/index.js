@@ -1,6 +1,5 @@
 const express = require('express')
 const compression = require('compression')
-const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const path = require('path')
