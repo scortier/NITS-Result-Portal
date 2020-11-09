@@ -1,18 +1,32 @@
 :root {
-  --white: #ffffff;
-  --black: #000000;
-  --dwhite: #ffffff;
-  --dblack: #000000;
-  --primaryColor: #5ebeca;
-  --primaryNavarColor: #ff8445;
-  --offBlack: #1a1a1a;
-  --offBlack1: #383838;
-  --offBlack2: #7a7a7a;
-  --offWhite: #e5e5e5;
-  --offWhite1: #f5f5f8;
-  --offWhite2: #c5c5c5;
-  --opensans: "Open Sans", Times, serif;
-  --centuryGothic: "Century Gothic", Times, serif;
-  --timesNewRoman: "Times New Roman", Times, serif;
+    --white: #ffffff;
+    --black: #000000;
+    --dwhite: #ffffff;
+    --dblack: #000000;
+    --primaryColor: #5ebeca;
+    --primaryNavarColor: #ff8445;
+    --offBlack: #1a1a1a;
+    --offBlack1: #383838;
+    --offBlack2: #7a7a7a;
+    --offWhite: #e5e5e5;
+    --offWhite1: #f5f5f8;
+    --offWhite2: #c5c5c5;
+    --gradient1: linear-gradient(
+        to right top,
+        #b6fbf6,
+        #befcff,
+        #d1f9ff,
+        #d2f1ff,
+        #e5eefe,
+        #e7eefd,
+        #e8effb,
+        #eaeffa,
+        #dff2ff,
+        #d1f6ff,
+        #d2e9eb,
+        #d3faf7
+    );
+    --opensans: 'Open Sans', Times, serif;
+    --centuryGothic: 'Century Gothic', Times, serif;
+    --timesNewRoman: 'Times New Roman', Times, serif;
 }
-/*# sourceMappingURL=globalVariables.css.map */
