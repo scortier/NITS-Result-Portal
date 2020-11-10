@@ -4,9 +4,10 @@ const Auth = require('../middlewares/auth')
 const userRouter = require('./user')
 const adminRouter = require('./admin')
 
+
 router.use('/user', userRouter)
 router.use('/admin', adminRouter)
-
+router.use("/moderator",require("./moderator"));
 router.get('/', (req, res) => {
     res.render('index')
 })

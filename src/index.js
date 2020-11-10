@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require('express')
 const compression = require('compression')
 const cookieParser = require('cookie-parser')
@@ -5,12 +6,12 @@ const session = require('express-session')
 const path = require('path')
 const connectDB = require('./connect')
 
-require('dotenv').config()
+
 const app = express()
 
 const PORT = process.env.PORT || 5000
 
-const routes = require('./routes')
+const routes = require('./routes/index')
 
 // for parsing body
 app.use(express.json())
