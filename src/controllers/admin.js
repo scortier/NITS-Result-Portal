@@ -27,6 +27,22 @@ module.exports.OwnerLogin = async (req, res) => {
    }
 }
 
+exports.AdminLogin = async (req, res, next) => {
+   try {
+         const {username, password} = req.body
+         let admin = await User.findByCredentials(username, password)
+         const JWTtoken = await user.generateAuthToken()
+         admin = admin.toJSON()
+         res.cookie('authorization', JWTtoken, {
+            maxAge: 24 * 60 * 60 * 1000,
+            httpOnly: false,
+        })
+        res.status(200).json(admin)
+   } catch (error) {
+      next(error)
+   }
+}
+
 exports.register = async (req, res, next) => {
    try {
       throw Error('Route Not Implemented')
