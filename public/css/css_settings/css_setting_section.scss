@@ -1,115 +1,118 @@
 .settings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--offWhite1);
-  border-radius: 10px;
-  .container {
     display: flex;
-    flex-direction: column;
-    height: 60rem;
-    width: 35%;
-    background-color: var(--dwhite);
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    background-image: var(--gradient1);
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 60rem;
+        width: 35%;
+        background-color: var(--dwhite);
 
-    .profile_image {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-      padding: 2rem 0rem;
-      .image_container {
-        overflow: hidden;
-        border-radius: 50%;
-        object-fit: cover;
-        width: 20%;
-        img {
-          width: 100%;
-          transition: all 0.2s;
+        .profile_image {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            padding: 2rem 0rem;
+            .image_container {
+                overflow: hidden;
+                border-radius: 50%;
+                object-fit: cover;
+                width: 20%;
+                img {
+                    width: 100%;
+                    transition: all 0.2s;
+                }
+                &:hover img {
+                    transform: scale(1.1);
+                    opacity: 0.9;
+                }
+            }
+            a {
+                color: var(--primaryColor);
+                font-size: 1em;
+                margin: 1em 0;
+                text-decoration: none;
+            }
         }
-        &:hover img {
-          transform: scale(1.1);
-          opacity: 0.9;
+        .profile_settings {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 2rem 0;
         }
-      }
-      a {
-        color: var(--primaryColor);
-        font-size: 1em;
-        margin: 1em 0;
-        text-decoration: none;
-      }
     }
-    .profile_settings {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      padding: 2rem 0;
-    }
-  }
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  justify-content: center;
-  hr {
-    width: 80%;
-  }
-  .form_fieldItem {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    justify-content: space-between;
-    margin: 0.5em 0;
-    label {
-      width: 100%;
-      margin: 0.5em 0em;
-      color: var(--offBlack2);
-      a {
-        color: var(--primaryColor);
-        font-size: 1em;
-      }
+    align-items: center;
+    width: 90%;
+    justify-content: center;
+    hr {
+        width: 80%;
     }
-  }
-  input[type="text"],
-  input[type="password"] {
-    padding: 1em 1em;
-    border: 1px solid;
-    border-radius: 3px;
-    border-color: var(--offWhite2);
-    font-size: 1.3em;
-    font-family: var(--opensans);
-  }
-  input[type="submit"] {
-    cursor: pointer;
-    border: none;
-    padding: 1em 1.5em;
-    background-color: var(--primaryColor);
-    color: var(--dwhite);
-    border-radius: 5px;
-    margin: 2em 0;
-    transition: all 0.2s;
-    &:hover {
-      opacity: 0.9;
+    .form_fieldItem {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        justify-content: space-between;
+        margin: 0.5em 0;
+        label {
+            width: 100%;
+            margin: 0.5em 0em;
+            color: var(--offBlack2);
+            a {
+                color: var(--primaryColor);
+                font-size: 1em;
+            }
+        }
     }
-  }
+    input[type='text'],
+    input[type='password'] {
+        padding: 1em 1em;
+        border: 1px solid;
+        border-radius: 3px;
+        border-color: var(--offWhite2);
+        font-size: 1.3em;
+        font-family: var(--opensans);
+    }
+    input[type='submit'] {
+        cursor: pointer;
+        border: none;
+        padding: 1em 1.5em;
+        background-color: var(--primaryColor);
+        color: var(--dwhite);
+        border-radius: 5px;
+        margin: 2em 0;
+        transition: all 0.2s;
+        &:hover {
+            opacity: 0.9;
+        }
+    }
 }
 
 @media (max-width: 1300px) {
-  .settings .container {
-    width: 65%;
-  }
+    .settings .container {
+        width: 65%;
+    }
 }
 @media (max-width: 700px) {
-  .settings .container {
-    width: 85%;
-  }
+    .settings .container {
+        width: 85%;
+    }
 }
 @media (max-width: 700px) {
-  .settings .container {
-    width: 95%;
-  }
+    .settings .container {
+        width: 95%;
+    }
 }

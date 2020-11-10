@@ -17,6 +17,7 @@ main {
           align-items: center;
   height: 100vh;
   background-color: var(--offWhite1);
+  background-image: var(--gradient1);
 }
 
 .login {
@@ -31,13 +32,14 @@ main {
       -ms-flex-align: center;
           align-items: center;
   background-color: var(--dwhite);
-  border-radius: 10px;
-  width: 50%;
-  height: 40rem;
-  padding: 2em;
+  border-radius: 20px;
+  width: 50vw;
+  height: auto;
 }
 
 .login .illustration {
+  border-radius: 20px 0 0 20px;
+  padding: 4em 2em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,12 +47,26 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   height: 100%;
-  width: 50%;
+  width: 40%;
   border-right: 1px solid;
   border-color: var(--offWhite1);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: start;
+  background-color: var(--primaryColor);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.login .illustration:hover {
+  width: 50%;
 }
 
 .login .illustration .mtitle {
@@ -58,17 +74,35 @@ main {
 }
 
 .login .illustration img {
-  width: 20vw;
+  width: 70%;
+}
+
+.login .illustration .des {
+  width: 100%;
+  height: 30%;
 }
 
 .login .illustration h1 {
-  color: var(--offBlack1);
-  font-size: 4em;
-  font-weight: 200;
+  color: var(--offWhite1);
+  font-size: 3.5em;
+  font-weight: 700;
 }
 
 .login .illustration span {
   font-weight: 700;
+}
+
+.login .illustration p {
+  font-size: 1.3em;
+  color: var(--offWhite1);
+  font-family: var(--opensans);
+}
+
+.login .illustration .description {
+  font-size: 1.5em;
+  line-height: 1.2em;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .login .form_section {
@@ -86,7 +120,18 @@ main {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  width: 50%;
+  width: 60%;
+  padding: 0 1.5em;
+}
+
+.login .form_section h1 {
+  color: var(--offBlack1);
+  font-size: 2.5em;
+  font-weight: 200;
+}
+
+.login .form_section h1 span {
+  font-weight: 700;
 }
 
 .form {
@@ -100,10 +145,11 @@ main {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  width: 95%;
-  height: 90%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  width: 80%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .form hr {
@@ -111,8 +157,9 @@ main {
 }
 
 .form h2 {
-  font-size: 3em;
-  color: black;
+  font-size: 1.5em;
+  color: var(--offWhite2);
+  margin: 0.2em 0 !important;
 }
 
 .form p {
@@ -129,7 +176,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
+  width: 90%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -146,23 +193,34 @@ main {
   color: var(--primaryColor);
   font-size: 1em;
 }
- .forgot label{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.form input[type="text"],
-.form input[type="password"] {
-  width: 100%;
-  padding: 1em 1em;
+
+.form input[type='text'],
+.form input[type='password'] {
+  padding: 0.8em 0.8em;
   border: 1px solid;
-  border-radius: 3px;
+  border-radius: 5px;
   border-color: var(--offWhite2);
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-family: var(--opensans);
 }
 
-.form input[type="submit"] {
+.form ::-webkit-input-placeholder {
+  opacity: 0.3;
+}
+
+.form :-ms-input-placeholder {
+  opacity: 0.3;
+}
+
+.form ::-ms-input-placeholder {
+  opacity: 0.3;
+}
+
+.form ::placeholder {
+  opacity: 0.3;
+}
+
+.form input[type='submit'] {
   cursor: pointer;
   border: none;
   padding: 1em 1.5em;
@@ -172,10 +230,10 @@ main {
   margin: 2em 0;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  width: 100%;
+  width: 90%;
 }
 
-.form input[type="submit"]:hover {
+.form input[type='submit']:hover {
   opacity: 0.9;
 }
 
@@ -186,8 +244,8 @@ main {
   .login .illustration img {
     width: 80%;
   }
-  .form input[type="text"],
-  .form input[type="password"] {
+  .form input[type='text'],
+  .form input[type='password'] {
     font-size: 1em;
   }
 }
@@ -202,7 +260,7 @@ main {
         -ms-flex-direction: column;
             flex-direction: column;
     height: 100%;
-    width: 95%;
+    width: 100%;
   }
   .login .illustration {
     -webkit-box-pack: center;
@@ -211,24 +269,27 @@ main {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 95%;
+    width: 100%;
+    border-radius: 0px;
   }
   .login .illustration h1 {
-    display: none;
+    text-align: center;
+    font-size: 2em;
   }
-  .login .illustration .mtitle {
-    display: block;
+  .login .illustration p {
     text-align: center;
   }
   .login .illustration img {
-    width: 30%;
+    display: none;
   }
   .login .form_section {
     width: 100%;
   }
+  .login .form_section h1 {
+    text-align: center;
+  }
   .form {
     width: 100%;
-    padding: 0;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -237,13 +298,4 @@ main {
     text-align: center;
   }
 }
-.login{
-  -webkit-box-shadow: 2px 2px 19px 0px rgba(50, 50, 50, 0.29);
--moz-box-shadow:    2px 2px 19px 0px rgba(50, 50, 50, 0.29);
-box-shadow:         2px 2px 19px 0px rgba(50, 50, 50, 0.29);
-}
 /*# sourceMappingURL=css_login.css.map */
-main{
-  background-size: contain;
-  background-repeat: no-repeat;
-}
