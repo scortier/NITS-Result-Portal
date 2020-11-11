@@ -8,9 +8,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: var(--offWhite1);
+  background-color: transparent;
   border-radius: 10px;
+  height: 100%;
   width: 100%;
+  background-image: var(--gradient1);
 }
 
 .settings .container {
@@ -131,8 +133,8 @@
   font-size: 1em;
 }
 
-.form input[type="text"],
-.form input[type="password"] {
+.form input[type='text'],
+.form input[type='password'] {
   padding: 1em 1em;
   border: 1px solid;
   border-radius: 3px;
@@ -141,7 +143,7 @@
   font-family: var(--opensans);
 }
 
-.form input[type="submit"] {
+.form input[type='submit'] {
   cursor: pointer;
   border: none;
   padding: 1em 1.5em;
@@ -153,7 +155,7 @@
   transition: all 0.2s;
 }
 
-.form input[type="submit"]:hover {
+.form input[type='submit']:hover {
   opacity: 0.9;
 }
 

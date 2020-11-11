@@ -4,8 +4,15 @@ const Auth = require('../middlewares/auth')
 const userRouter = require('./user')
 const adminRouter = require('./admin')
 
+
 router.use('/user', userRouter)
 router.use('/admin', adminRouter)
+
+router.use("/moderator",require("./moderator"));
+
+router.get('/logout', (req,res) => {
+    res.clearCookie('authorization').render('login');
+})
 
 router.get('/', (req, res) => {
     res.render('index')
