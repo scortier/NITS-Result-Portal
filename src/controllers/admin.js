@@ -1,38 +1,38 @@
-
 const Admin = require('../models/admin')
 const jwt = require('jsonwebtoken')
-const maxAge =  24 * 60 * 60
-const ownerUsername = process.env.OWNER_USERNAME
-const ownerPassword = process.env.OWNER_PASSWORD
-const payload = {
-   username: ownerUsername,
-   password: ownerPassword
-}
-const createToken = (payload) => {
-    return jwt.sign({payload},process.env.JWT_SECRET,{
-        expiresIn: maxAge,
-    })
-}
-module.exports.OwnerLogin = async (req, res) => {
+
+module.exports.OwnerLogin = async (req, res, next) => {
    const {username, password} = req.body;
+   const ownerUsername = process.env.OWNER_USERNAME 
+   const ownerPassword = process.env.OWNER_PASSWORD
+   console.log(req.body)
    try {
       if(username === ownerUsername && password === ownerPassword) {
-      const token = createToken()
-      res.cookie('jwt', token, { httpOnly: true, maxAge : maxAge});
-      console.log("Logged in successfully")
-      res.status(200).redirect("/")
-   }
+         const token = jwt.sign({
+            username: ownerUsername,
+            password: ownerPassword
+         },
+         process.env.JWT_SECRET,
+         {
+            expiresIn: process.env.JWT_EXPIRE,
+         })
+         res.cookie('authorization', token, { httpOnly: true, maxAge :  24 * 60 * 60});
+         res.status(200).end()
+      } else {
+         const err = new Error('Invalid Owner Credetials')
+         err.statusCode = 403
+         throw err
+      }
    } catch (error) {
-      console.log(error)
-      res.redirect("/admin/owner/login")
+      next(error)
    }
 }
 
 exports.AdminLogin = async (req, res, next) => {
    try {
          const {username, password} = req.body
-         let admin = await User.findByCredentials(username, password)
-         const JWTtoken = await user.generateAuthToken()
+         let admin = await Admin.findByCredentials(username, password)
+         const JWTtoken = await admin.generateAuthToken()
          admin = admin.toJSON()
          res.cookie('authorization', JWTtoken, {
             maxAge: 24 * 60 * 60 * 1000,
@@ -44,21 +44,10 @@ exports.AdminLogin = async (req, res, next) => {
    }
 }
 
-
-exports.register = async (req, res, next) => {
-   try {
-      throw Error('Route Not Implemented')
-   } catch (error) {
-      next(error)
-   }
-}
-
-
-exports.CreateModerator=async (req,res,next)=>{
+exports.CreateAdmin=async (req,res,next)=>{
    try{
-
       const  {username,password,role}=req.body;
-      let admin=await Admin.create({
+      let admin = await Admin.create({
           username,
           password,
           role
@@ -70,26 +59,8 @@ exports.CreateModerator=async (req,res,next)=>{
        httpOnly: false,  
       });
       res.status(201).json(admin);
-}
+   }
    catch(e){
        next(e);
-   }
-}
-// moderator
-exports.ModeratorLogin=async (req,res,next)=>{
-   try {
-       console.log("yooyoy");
-       const { password,username } = req.body
-       let moderator = await Admin.findByCredentials(username,password)
-       console.log(moderator);
-       const JWTtoken = await moderator.generateAuthToken()
-       moderator = moderator.toJSON();
-       res.cookie('authorization', JWTtoken, {
-           maxAge: 24 * 60 * 60 * 1000,
-           httpOnly: false,
-       });
-       res.status(200).json(moderator)
-   } catch (error) {
-       next(error)
    }
 }
