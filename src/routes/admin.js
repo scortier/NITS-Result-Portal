@@ -4,7 +4,14 @@ const adminController = require('../controllers/admin')
 const adminAuth=require("../middlewares/adminAuth");
 const {Role} =require("../roles/role")
 
-router.post('/owner/login', adminController.OwnerLogin)
+router.post('/admin/owner/login', adminController.OwnerLogin)
+router.post('/admin/login', adminController.AdminLogin)
+router.post('/register', adminController.register)
+
+router.get('/login',(req,res)=>{
+
+})
+
 router.get('/register',(req,res)=>{
     res.send("owner login");
 });
@@ -25,6 +32,5 @@ router.post("/owner/create-moderator",adminAuth(Role.Owner),adminController.Crea
 // router.get('/register',(req,res)=>{
 
 // })
-
 
 module.exports = router
