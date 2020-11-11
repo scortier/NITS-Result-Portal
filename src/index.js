@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 5000
 const routes = require('./routes')
 
 // for parsing body
+app.use(express.urlencoded({
+    extended: true
+}))
 app.use(express.json())
 app.use(cookieParser('secret_passcode'))
 app.use(compression())
