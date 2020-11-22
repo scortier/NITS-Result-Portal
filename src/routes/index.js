@@ -23,9 +23,7 @@ router.get('/settings', (req, res) => {
     res.render('settings')
 })
 
-router.get('/admindashboard', (req, res) => {
-    res.render('adminDashboard')
-})
+
 // to test auth only
 router.get('/auth-test', adminAuth([Role.Viewer, Role.Moderator]), (req, res) => {
     res.send('Auth working ')
