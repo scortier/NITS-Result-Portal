@@ -2,10 +2,12 @@ const Admin = require('../models/admin')
 const jwt = require('jsonwebtoken')
 
 module.exports.OwnerLogin = async (req, res, next) => {
+
    const {username, password} = req.body;
    const ownerUsername = process.env.OWNER_USERNAME 
    const ownerPassword = process.env.OWNER_PASSWORD
-   console.log(req.body)
+   console.log(req.body.username)
+   console.log(ownerUsername)
    try {
       if(username === ownerUsername && password === ownerPassword) {
          const token = jwt.sign({
@@ -17,7 +19,11 @@ module.exports.OwnerLogin = async (req, res, next) => {
             expiresIn: process.env.JWT_EXPIRE,
          })
          res.cookie('authorization', token, { httpOnly: true, maxAge :  24 * 60 * 60});
+         // dashboard
+         // res.redirect("/dashboard")
          res.status(200).end()
+
+
       } else {
          const err = new Error('Invalid Owner Credetials')
          err.statusCode = 403
