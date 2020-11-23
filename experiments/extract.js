@@ -48,16 +48,15 @@ const dataExtraction = async() =>{
 
     let students = []
 
-    results.forEach(async (result) => {
+    await results.forEach(async (result) => {
         let transformedData = await transform(result)
-        console.log(transformedData);
+        // console.log(transformedData);
         students.push(transformedData)
     })
 
-    console.log(students);
-
-
+    // console.log(students);
+    return students
 
 }
 
-dataExtraction()
+module.exports = dataExtraction

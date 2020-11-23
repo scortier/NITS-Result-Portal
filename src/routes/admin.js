@@ -16,4 +16,5 @@ router.get('/login',adminIsLoggedIn(Role.Moderator),adminController.adminLogin_g
 router.get('/dashboard',adminAuth([Role.Owner,Role.Moderator,Role.Viewer]),adminController.dashBoardLogin_get)
 router.get('/logout',adminController.logout_get)
 
+router.post('/result/upload', adminController.uploadResult_post)
 module.exports = router
