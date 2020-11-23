@@ -8,19 +8,10 @@ const adminRouter = require('./admin')
 router.use('/user', userRouter)
 router.use('/admin', adminRouter)
 
-router.get('/logout', (req, res) => {
-    res.clearCookie('authorization').render('login')
+router.get('/', (req, res) => {
+    res.render("index")
 })
 
-router.get('/', (req, res) => {
-    res.render('index')
-})
-router.get('/login', (req, res) => {
-    res.render('login')
-})
-router.get('/settings', (req, res) => {
-    res.render('settings')
-})
 // to test auth only
 router.get(
     '/auth-test',

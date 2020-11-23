@@ -27,7 +27,9 @@ const adminAuth =  (allowedRoles) => {
                userInfo.username === process.env.OWNER_USERNAME && 
                userInfo.password === process.env.OWNER_PASSWORD ) 
             {
-                
+                req.adminInfo = {
+                    role: Role.Owner
+                }
                 next();
             } 
             else {
@@ -48,6 +50,7 @@ const adminAuth =  (allowedRoles) => {
                         req.adminInfo = {
                                 token: token,
                                 admin: admin,
+                                role: admin.role
                             }
                             allowed = true;
                             next();

@@ -13,4 +13,8 @@ router.get('/register', (req, res) => {
     res.render('ownerlogin')
 })
 
+router.get('/dashboard', (req, res) => {
+    res.render("adminDashboard")
+})
+
 module.exports = router
