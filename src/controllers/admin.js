@@ -18,7 +18,7 @@ module.exports.OwnerLogin = async (req, res, next) => {
          {
             expiresIn: process.env.JWT_EXPIRE,
          })
-         res.cookie('authorization', token, { httpOnly: true, maxAge :  24 * 60 * 60});
+         res.cookie('authorization', token, { httpOnly: true, maxAge :  24 * 60 * 60 * 1000});
          // dashboard
          res.redirect("/admin/dashboard")
 
@@ -35,7 +35,9 @@ module.exports.OwnerLogin = async (req, res, next) => {
 exports.AdminLogin = async (req, res, next) => {
    try {
          const {username, password} = req.body
+         
          let admin = await Admin.findByCredentials(username, password)
+         
          const JWTtoken = await admin.generateAuthToken()
          admin = admin.toJSON()
          res.cookie('authorization', JWTtoken, {
@@ -56,8 +58,10 @@ exports.CreateAdmin=async (req,res,next)=>{
           password,
           role
       });
+      
       const JWTtoken =await admin.generateAuthToken();
       admin =admin.toJSON();
+      
       res.cookie("authorization",JWTtoken,{
        maxAge: 24 * 60 * 60 * 1000,
        httpOnly: false,  
@@ -67,4 +71,50 @@ exports.CreateAdmin=async (req,res,next)=>{
    catch(e){
        next(e);
    }
+}
+//  gets 
+exports.adminLogin_get= async(req,res,next)=>{
+   try{
+      res.render("adminLogin")
+   }
+   catch(error){
+      console.log(error)
+      next()
+   }
+}
+
+exports.ownerLogin_get=async(req,res,next)=>{
+   try{
+      res.render('ownerLogin')
+   }
+   catch(error){
+
+      console.log(error)
+      next()
+
+   }
+}
+
+exports.dashBoardLogin_get=async(req,res,next)=>{
+   try{
+      res.render('adminDashboard')
+   }
+   catch(error){
+
+      console.log(error)
+      next()
+
+   }  
+}
+
+exports.logout_get=async(req,res,next)=>{
+   try{   
+      res.clearCookie("authorization").redirect("/admin/login")  
+      
+   }
+   catch(error){
+      console.log(error)
+      next()
+
+   }  
 }
