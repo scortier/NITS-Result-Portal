@@ -54,10 +54,9 @@ const dataExtraction = async() =>{
         students.push(transformedData)
     })
 
-    console.log(students);
-
-
+    // console.log(students);
+    return students
 
 }
 
-dataExtraction()
+module.exports = dataExtraction

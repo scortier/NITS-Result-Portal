@@ -17,11 +17,24 @@ const userSchema = new mongoose.Schema(
             match: [/^([a-z']+(-| )?)+$/i, 'is invalid'],
             required: [true, 'is required'],
         },
+        CGPA: {
+            type :Number,
+            required: true
+        }
     },
     {
         timestamps: true,
+        toObject :{
+            virtuals: true
+        }
     }
 )
+
+userSchema.virtual('results', {
+    ref: 'Result',
+    localField: '_id',
+    foreignField: 'student'
+})
 
 // generateAuthToken
 userSchema.methods.generateAuthToken = async function () {
