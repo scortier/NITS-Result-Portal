@@ -33,13 +33,13 @@ adminSchema.methods.generateAuthToken=async function(){
 }
 adminSchema.statics.findByCredentials = async function (username, password) {
     const admin = await Admin.findOne({ username })
-  
+    
     if (!admin) {
         throw new Error({message:'Admin not found'})
     }
-  
+    
     const isMatch = await bcrypt.compare(password, admin.password)
-  
+
     if (!isMatch) {
         throw new Error({message:'password didnt match'})
     }

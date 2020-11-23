@@ -7,7 +7,6 @@ const  Role = {
     Viewer: "viewer"
 }
 
-
 const adminAuth =  (allowedRoles) => {
     return async (req, res, next) => {
         try {
@@ -78,7 +77,47 @@ const adminAuth =  (allowedRoles) => {
     }
 }
 
+const adminIsLoggedIn=(adminRoll)=>{
+    return async (req,res,next)=>{
+            try{
+                
+                
+                const token =req.cookies.authorization;
+                
+                if(token==undefined){
+                    next()
+                    return
+                }
+                const userInfo = await jwt.verify(token, process.env.JWT_SECRET)
+                // console.log(userInfo,"jitul");
+                if(userInfo!==undefined){
+                    if(adminRoll.includes(Role.Owner)&& userInfo.username===process.env.OWNER_USERNAME &&
+                userInfo.password===process.env.OWNER_PASSWORD){
+                   return res.redirect("/admin/dashboard")
+                    
+                }
+                else if(adminRoll.includes(Role.Moderator)){
+                    const admin = await Admin.findById(userInfo._id);
+                    if(!admin){
+                        throw new Error('Admin Not Found')
+                    }
+                    return  res.redirect("/admin/dashboard")
+                    
+                }
+                
+             }
+            }
+            catch(error){
+                res.status(401).json({
+                    error: true,
+                    message: error.message,
+                })   
+            }
+    }
+}
+
 module.exports = {
     adminAuth,
-    Role
+    Role,
+    adminIsLoggedIn
 }

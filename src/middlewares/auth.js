@@ -10,7 +10,6 @@ const auth = async (req, res, next) => {
         if (!user) {
             throw new Error('User not found')
         }
-
         //Remove token
         req.userInfo = {
             user
