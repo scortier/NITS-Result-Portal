@@ -1,8 +1,9 @@
 const User = require('../models/User')
 
-exports.login = async (req, res, next) => {
+exports.login_post = async (req, res, next) => {
     try {
         const { password, sch_id } = req.body
+        console.log("login route",req.body);
         let user = await User.findByCredentials(sch_id, password)
         const JWTtoken = await user.generateAuthToken()
         user = user.toJSON()
@@ -10,7 +11,8 @@ exports.login = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-        res.status(200).json(user)
+        // res.status(200).json(user)
+        res.redirect("/user/profile");
     } catch (error) {
         next(error)
     }
