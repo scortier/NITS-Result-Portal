@@ -18,8 +18,11 @@ const adminAuth =  (allowedRoles) => {
                 
             // Get the data from the authorization cookies
             const token = req.cookies.authorization
+            if(token==undefined){
+                return res.redirect("/admin/login")
+            }
             const userInfo = await jwt.verify(token, process.env.JWT_SECRET)
-            // console.log(userInfo);
+            
             // if the allowedRoles contains owner and current user is owner, call next()
             
             if(allowedRoles.includes(Role.Owner) && 

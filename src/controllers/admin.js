@@ -44,7 +44,8 @@ exports.AdminLogin = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-        res.status(200).json(admin)
+      //   res.status(200).json(admin)
+      res.redirect("/admin/dashboard")
    } catch (error) {
       next(error)
    }
@@ -66,7 +67,7 @@ exports.CreateAdmin=async (req,res,next)=>{
        maxAge: 24 * 60 * 60 * 1000,
        httpOnly: false,  
       });
-      res.status(201).json(admin);
+      
    }
    catch(e){
        next(e);
