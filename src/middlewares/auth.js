@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const auth = async (req, res, next) => {
     try {
-        const token = req.cookies.authorization
+        const token = req.cookies.resultAuth
         const userInfo = jwt.verify(token, process.env.JWT_SECRET)
         const user = await User.findById(userInfo._id)
         console.log(user)
@@ -11,40 +11,28 @@ const auth = async (req, res, next) => {
             throw new Error('User not found')
         }
 
-        //Remove token 
+        //Remove token
         req.userInfo = {
-            token: token,
-            user: user,
+            user
         }
         next()
     } catch (err) {
-        res.status(401).json({
-            error: true,
-            message: 'Login First',
-        })
+        res.redirect("/user/login");
     }
 }
 
-const isLoggedIn = async(req, res, next)=>{
-    try{
-        const token = req.cookies.authorization
-        const userInfo = jwt.verify(token, process.env.JWT_SECRET)
-        if(!userInfo){
-            next()
-            return 
-        }
-        const user = await User.findById(userInfo._id)
-        if(!user){
-            console.log("User not found")
-            next()
-            return 
-        }
-        res.redirect("/user/profile")
+const isLoggedIn = async (req, res, next) => {
+    const token = req.cookies.resultAuth
 
-    }catch(error){
-        console.log("Error from isLoggedIn middleware", error)
+    if (token) {
+        let userInfo = jwt.verify(token, process.env.JWT_SECRET)
+        if(userInfo){
+            let user = await User.findById(userInfo._id)
+            res.render("profile",{user})
+            return 
+        }
     }
-
+    next()
 }
 
-module.exports = {auth, isLoggedIn}
+module.exports = { auth, isLoggedIn }
