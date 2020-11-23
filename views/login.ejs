@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Result_Portal</title>
         <meta name="mobile-web-app-capable" content="yes" />
-        <link rel="icon" sizes="192x192" href="/images/android-desktop.png" />
+        <link rel="icon" sizes="192x192" href="../images/android-desktop.png" />
 
         <!-- Add to homescreen for Safari on iOS -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -16,7 +16,7 @@
         />
         <link
             rel="apple-touch-icon-precomposed"
-            href="/images/ios-desktop.png"
+            href="../images/ios-desktop.png"
         />
 
         <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -57,7 +57,7 @@
                     </div>
                     <p></p>
                     <!-- <p class="description">One Place for all of you Results.</p> -->
-                    <img src="images/4119037.png" alt="" />
+                    <img src="../images/4119037.png" alt="" />
                     <!-- <div class="mtitle">
                         <h1>Result Portal</h1>
                         <p>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form_section">
-                    <form action="/" class="form">
+                    <form action="/user/login" class="form" method="POST">
                         <h1>Login to your account</h1>
                         <h2>Welcome back,</h2>
                         <div class="form_fieldItem">
@@ -77,6 +77,7 @@
                                 type="text"
                                 id="scholarID"
                                 placeholder="Enter your Scholar ID"
+                                name="sch_id"
                             />
                         </div>
                         <div class="form_fieldItem">
@@ -84,6 +85,7 @@
                             <input
                                 type="password"
                                 placeholder="Enter your current password"
+                                name="password"
                             />
                         </div>
                         <p>
