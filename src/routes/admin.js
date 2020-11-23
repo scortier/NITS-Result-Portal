@@ -9,11 +9,11 @@ router.post('/create', adminAuth(Role.Owner), adminController.CreateAdmin)
 router.get('/login', (req, res) => {
     res.render('adminLogin')
 })
-router.get('/register', (req, res) => {
-    res.render('ownerlogin')
+router.get('/owner/login', (req, res) => {
+    res.render('ownerLogin')
 })
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', adminAuth,(req, res) => {
     res.render("adminDashboard")
 })
 

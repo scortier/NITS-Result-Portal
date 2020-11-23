@@ -20,9 +20,7 @@ module.exports.OwnerLogin = async (req, res, next) => {
          })
          res.cookie('authorization', token, { httpOnly: true, maxAge :  24 * 60 * 60});
          // dashboard
-         // res.redirect("/dashboard")
-         res.status(200).end()
-
+         res.redirect("/admin/dashboard")
 
       } else {
          const err = new Error('Invalid Owner Credetials')
