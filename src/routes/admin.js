@@ -17,5 +17,5 @@ router.get('/dashboard', adminAuth,(req, res) => {
     res.render("adminDashboard")
 })
 
-router.get('/result/upload', adminController.uploadResult_post)
+router.post('/result/upload', adminController.uploadResult_post)
 module.exports = router

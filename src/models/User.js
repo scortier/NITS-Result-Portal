@@ -14,10 +14,9 @@ const userSchema = new mongoose.Schema(
         },
         name: {
             type: String,
-            match: [/^([a-z']+(-| )?)+$/i, 'is invalid'],
             required: [true, 'is required'],
         },
-        CGPA: {
+        cgpa: {
             type :Number,
             required: true
         }

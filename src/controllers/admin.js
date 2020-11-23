@@ -1,8 +1,8 @@
 const Admin = require('../models/admin')
 const jwt = require('jsonwebtoken')
 const dataExtraction = require('../../experiments/extract')
-const forEveryStudent = require('../utils/uploadResultUtil')
-const uploadResultUtil = require('../utils/uploadResultUtil')
+const forStudent = require('../utils/uploadResultUtil')
+// const uploadResultUtil = require('../utils/uploadResultUtil')
 
 module.exports.OwnerLogin = async (req, res, next) => {
     const { username, password } = req.body
@@ -76,11 +76,15 @@ exports.CreateAdmin = async (req, res, next) => {
 
 exports.uploadResult_post = async (req, res, next) => {
     try {
+        console.log("Started Controller");
         let { sem, branch, year } = req.body
         let students = await dataExtraction()
 
+        console.log("Found data from csv",students);
+
         students.forEach(async (student) => {
-            await uploadResultUtil(student, branch, sem, year)
+            console.log((student));
+            await forStudent(student, branch, sem, year)
         })
         res.status(200).send({message: "successful"})
     } catch (error) {

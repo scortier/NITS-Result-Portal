@@ -7,7 +7,7 @@ const resultSchema = new mongoose.Schema(
             required: true
         },
         year:{
-            type: Number,
+            type: String,
             required:true
         },
         branch :{
@@ -22,7 +22,11 @@ const resultSchema = new mongoose.Schema(
     
         subjects :[
             {
-                type: String
+                subCode: String,
+                subName: String,
+                subCredit: String,
+                subGrade: String,
+                subPointer: Number
             }
         ],
         gp: {
@@ -39,4 +43,4 @@ const resultSchema = new mongoose.Schema(
     }
 )
 
-module.exports = User = mongoose.model('Result', resultSchema)
+module.exports = Result = mongoose.model('Result', resultSchema)
