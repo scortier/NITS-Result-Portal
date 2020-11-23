@@ -1,19 +1,25 @@
+require('dotenv').config()
 const express = require('express')
+const bodyParser = require('body-parser')
 const compression = require('compression')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const path = require('path')
 const connectDB = require('./connect')
 
-require('dotenv').config()
 const app = express()
 
 const PORT = process.env.PORT || 5000
 
-const routes = require('./routes')
+const routes = require('./routes/index')
 
 // for parsing body
-app.use(express.json())
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+)
+app.use(bodyParser.json())
 app.use(cookieParser('secret_passcode'))
 app.use(compression())
 
@@ -40,3 +46,22 @@ app.use('/', routes)
 connectDB()
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
+
+const User = require('./models/User.js')
+const { create } = require('domain')
+
+const createUser = async (sch_id, name, password) => {
+    try {
+        let user = new User({
+            sch_id,
+            name,
+            password,
+        })
+
+        await user.save()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// createUser("1815133","sameer", "12345678")
