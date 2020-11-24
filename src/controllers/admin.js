@@ -34,7 +34,8 @@ module.exports.OwnerLogin = async (req, res, next) => {
             throw err
         }
     } catch (error) {
-        next(error)
+        // next(error)
+        res.redirect("/admin/owner/login")
     }
 }
 

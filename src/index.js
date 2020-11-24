@@ -5,11 +5,11 @@ const compression = require('compression')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const path = require('path')
+const flash = require('connect-flash')
 const connectDB = require('./connect')
-const cors = require('cors')
 
 const app = express()
-app.use(cors())
+app.use(express.json())
 
 const PORT = process.env.PORT || 5000
 
@@ -35,6 +35,23 @@ app.use(
         saveUninitialized: false,
     })
 )
+
+app.use(
+    session({
+        secret: 'secret',
+        cookie: {
+            maxAge: 4000000,
+        },
+        resave: false,
+        saveUninitialized: false,
+    })
+)
+app.use(flash())
+
+app.use((req, res, next) => {
+    res.locals.flashMessages = req.flash()
+    next()
+})
 
 app.set('view engine', 'ejs')
 
