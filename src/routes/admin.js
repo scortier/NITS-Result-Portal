@@ -1,18 +1,20 @@
 /** Write User routes here */
 const router = require('express').Router()
 const adminController = require('../controllers/admin')
-const {adminAuth, Role}=require("../middlewares/adminAuth");
+const { adminAuth, Role ,adminIsLoggedIn} = require('../middlewares/adminAuth')
 
+// owner
 router.post('/owner/login', adminController.OwnerLogin)
-router.post('/login', adminController.AdminLogin)
 router.post('/create', adminAuth(Role.Owner), adminController.CreateAdmin)
+router.get('/owner/login',adminIsLoggedIn(Role.Owner),adminController.ownerLogin_get)
 
-router.get('/login',(req,res)=>{
-    res.send("owner login");
-})
+// moderator
+router.post('/login',adminController.AdminLogin)
+router.get('/login',adminIsLoggedIn(Role.Moderator),adminController.adminLogin_get)
 
-router.get('/register',(req,res)=>{
-    res.send("owner login");
-});
+// both
+router.get('/dashboard',adminAuth([Role.Owner,Role.Moderator,Role.Viewer]),adminController.dashBoardLogin_get)
+router.get('/logout',adminController.logout_get)
 
+router.post('/result/upload', adminController.uploadResult_post)
 module.exports = router
