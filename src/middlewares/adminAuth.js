@@ -72,10 +72,11 @@ const adminAuth =  (allowedRoles) => {
                 }
             }
         } catch (err) {
-            res.status(401).json({
-                error: true,
-                message: err.message,
-            })
+            res.redirect("/admin/owner/login")
+            // res.status(401).json({
+            //     error: true,
+            //     message: err.message,
+            // })
         }
     }
 }
