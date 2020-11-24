@@ -1,0 +1,179 @@
+.settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  background-image: var(--gradient1);
+}
+
+.settings .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 60rem;
+  width: 35%;
+  background-color: var(--dwhite);
+}
+
+.settings .container .profile_image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 2rem 0rem;
+}
+
+.settings .container .profile_image .image_container {
+  overflow: hidden;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 20%;
+}
+
+.settings .container .profile_image .image_container img {
+  width: 100%;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.settings .container .profile_image .image_container:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.settings .container .profile_image a {
+  color: var(--primaryColor);
+  font-size: 1em;
+  margin: 1em 0;
+  text-decoration: none;
+}
+
+.settings .container .profile_settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form hr {
+  width: 80%;
+}
+
+.form .form_fieldItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0.5em 0;
+}
+
+.form .form_fieldItem label {
+  width: 100%;
+  margin: 0.5em 0em;
+  color: var(--offBlack2);
+}
+
+.form .form_fieldItem label a {
+  color: var(--primaryColor);
+  font-size: 1em;
+}
+
+.form input[type='text'],
+.form input[type='password'] {
+  padding: 1em 1em;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: var(--offWhite2);
+  font-size: 1.3em;
+  font-family: var(--opensans);
+}
+
+.form input[type='submit'] {
+  cursor: pointer;
+  border: none;
+  padding: 1em 1.5em;
+  background-color: var(--primaryColor);
+  color: var(--dwhite);
+  border-radius: 5px;
+  margin: 2em 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.form input[type='submit']:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 1300px) {
+  .settings .container {
+    width: 65%;
+  }
+}
+
+@media (max-width: 700px) {
+  .settings .container {
+    width: 85%;
+  }
+}
+
+@media (max-width: 700px) {
+  .settings .container {
+    width: 95%;
+  }
+}
+/*# sourceMappingURL=css_setting_section.css.map */
