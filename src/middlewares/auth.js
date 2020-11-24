@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
         const token = req.cookies.resultAuth
         const userInfo = jwt.verify(token, process.env.JWT_SECRET)
         const user = await User.findById(userInfo._id)
-        console.log(user)
+        // console.log(user)
         if (!user) {
             throw new Error('User not found')
         }
