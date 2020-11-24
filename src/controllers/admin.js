@@ -8,8 +8,8 @@ module.exports.OwnerLogin = async (req, res, next) => {
     const { username, password } = req.body
     const ownerUsername = process.env.OWNER_USERNAME
     const ownerPassword = process.env.OWNER_PASSWORD
-    console.log(req.body.username)
-    console.log(ownerUsername)
+    // console.log(req.body.username)
+    // console.log(ownerUsername)
     try {
         if (username === ownerUsername && password === ownerPassword) {
             const token = jwt.sign(
