@@ -2,7 +2,8 @@ const User = require('../models/User')
 
 exports.login_get = async (req, res, next) => {
     try {
-        res.render('login')
+        req.flash('message', '')
+        res.render('login', { flash: { message: req.flash('message') } })
     } catch (error) {
         console.log(error)
         next()
@@ -31,7 +32,8 @@ exports.login_post = async (req, res, next) => {
         // res.status(200).json(user)
         res.render('profile', { user })
     } catch (error) {
-        res.redirect("/user/login")
+        req.flash('message', 'Wrong username or password')
+        res.render('login', { flash: { message: req.flash('message') } })
         // next(error)
     }
 }
