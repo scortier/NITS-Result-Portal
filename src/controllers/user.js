@@ -12,7 +12,7 @@ exports.login_get = async (req, res, next) => {
 
 exports.logout_get = async (req, res, next) => {
     try {
-        req.flash('message', 'Logout Sucessfull')
+        req.flash('message', 'Logged out successfully')
         res.clearCookie('resultAuth').redirect('/user/login')
     } catch (error) {
         console.log(error)

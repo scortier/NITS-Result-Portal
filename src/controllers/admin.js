@@ -26,7 +26,7 @@ module.exports.OwnerLogin = async (req, res, next) => {
                 maxAge: 24 * 60 * 60 * 1000,
             })
             // dashboard
-            req.flash('message','logged in sucessfully')   
+            req.flash('message','Logged in sucessfully')   
             res.redirect('/admin/dashboard')
         } else {
             const err = new Error('Invalid Owner Credetials')
@@ -50,7 +50,7 @@ exports.AdminLogin = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-            req.flash('message', 'logged in sucessfully');   
+            req.flash('message', 'Logged in sucessfully');   
             res.redirect('/admin/dashboard')
     
     } catch (error) {
@@ -116,7 +116,7 @@ exports.dashBoardLogin_get = async (req, res, next) => {
 
 exports.logout_get = async (req, res, next) => {
     try {
-        req.flash('message', 'Logout Sucessfull')
+        req.flash('message', 'Logged out successfully')
         res.clearCookie('authorization').redirect('/admin/login')
     } catch (error) {
         console.log(error)
