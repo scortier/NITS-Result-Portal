@@ -17,22 +17,22 @@ const userSchema = new mongoose.Schema(
             required: [true, 'is required'],
         },
         cgpa: {
-            type :Number,
-            required: true
-        }
+            type: Number,
+            required: true,
+        },
     },
     {
         timestamps: true,
-        toObject :{
-            virtuals: true
-        }
+        toObject: {
+            virtuals: true,
+        },
     }
 )
 
 userSchema.virtual('results', {
     ref: 'Result',
     localField: '_id',
-    foreignField: 'student'
+    foreignField: 'student',
 })
 
 // generateAuthToken

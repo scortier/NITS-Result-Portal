@@ -113,6 +113,7 @@ const uploadAll = () => {
 window.onload = () => {
     addRow()
 }
+
 document.getElementById('add-row').addEventListener('click', addRow)
 document.getElementById('submit-all').addEventListener('click', uploadAll)
 

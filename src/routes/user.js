@@ -12,9 +12,7 @@ router.get('/settings', auth,userController.settings_get)
 
 
 
-// router.get('/register',(req,res)=>{
 
-// })
 
 
 module.exports = router
