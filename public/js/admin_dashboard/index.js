@@ -2,7 +2,7 @@ let count = 0 // count of all the rows / forms in the body
 const tbodyElem = document.getElementById('tbody') 
 
 const sendForm = (formData) =>  {
-    fetch('/admin/result/upload', {
+    return fetch('/admin/result/upload', {
         method: "POST",
         body: formData
     }).then(res => res.json()).then(data => console.log(data))
@@ -107,16 +107,21 @@ const addRow = () => {
 const uploadAll = () => {
     if(confirm(`This will upload all ${count} file(s)?`))
     {
+        document.getElementById('submit-all').innerHTML = 'Processing...'
         allForms = document.getElementsByClassName('row-form')
         // allForms.forEach((formElement) => {
         //     formElement.submit()
         // })
+        promises = []
         for(let i = 0; i < allForms.length; i++) {
             console.log("Submitting Form", i);
             // allForms[i].submit();
             formData = new FormData(allForms[i])
-            sendForm(formData)
+            promises.push(sendForm(formData))
         }
+        Promise.all(promises).then(() => 
+            document.getElementById('submit-all').innerHTML = 'Upload All Files'
+        )
     }
 }
 window.onload = () => {
