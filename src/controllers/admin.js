@@ -116,6 +116,7 @@ exports.dashBoardLogin_get = async (req, res, next) => {
 
 exports.logout_get = async (req, res, next) => {
     try {
+        req.flash('message', 'Logout Sucessfull')
         res.clearCookie('authorization').redirect('/admin/login')
     } catch (error) {
         console.log(error)

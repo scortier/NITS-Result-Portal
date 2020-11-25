@@ -12,6 +12,7 @@ exports.login_get = async (req, res, next) => {
 
 exports.logout_get = async (req, res, next) => {
     try {
+        req.flash('message', 'Logout Sucessfull')
         res.clearCookie('resultAuth').redirect('/user/login')
     } catch (error) {
         console.log(error)
@@ -29,8 +30,9 @@ exports.login_post = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-        // res.status(200).json(user)
-        res.render('profile', { user })
+        req.flash('message', 'Logged in sucessfully')
+        res.render('profile', { user,flashMessages: { message: req.flash('message') } })
+        
     } catch (error) {
         req.flash('message', 'Wrong username or password')
         res.render('login', { flash: { message: req.flash('message') } })
