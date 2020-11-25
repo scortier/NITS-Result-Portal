@@ -1,0 +1,6 @@
+<%if(flashMessages.message){%>
+    <div class="sucess-flash-msg">
+      <i class="material-icons error">check</i>  <%=flashMessages.message%> 
+      <div  onclick="closeIt()" class="material-icons cross">clear</div>
+    </div>
+<%}%>

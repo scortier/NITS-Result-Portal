@@ -358,3 +358,24 @@ thead th {
 #submit-all {
     margin-top: 5px;
 }
+
+/* flash message sucess*/
+.sucess-flash-msg{
+        background-color:#1dd00c; 
+        margin :0 auto ;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        color: #fff;
+        font-size:1.2rem 
+}
+.error{
+    margin: 7px;
+  }
+  .cross{
+    position: absolute;
+    right:100px;
+  }
+.cross:hover{
+      cursor: pointer !important
+    }

@@ -45,7 +45,12 @@
         <link rel="stylesheet" href="/css/css_login/css_login.css" />
     </head>
     <body>
+        <%- include('partials/error.ejs') %>
+        <%- include('partials/sucess.ejs') %>
+
         <main>
+
+
             <div class="login">
                 <div class="illustration">
                     <div class="des">
@@ -98,6 +103,7 @@
                         />
                         <div class="form_fieldItem forgot">
                             <label> <a href="#">Forgot password ?</a></label>
+                            <label> <a href="/admin/login">As an Moderator ?</a></label>
                         </div>
                     </form>
                 </div>
@@ -105,5 +111,16 @@
         </main>
 
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script>
+            const closeIt=()=>{
+                if(document.querySelector(".alert-flash-msg")==null){
+                    document.querySelector(".sucess-flash-msg").style.display="none";
+                }
+                else{
+                    document.querySelector(".alert-flash-msg").style.display="none";
+                }                    
+                }
+        </script>
+        
     </body>
 </html>

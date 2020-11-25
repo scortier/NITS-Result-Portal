@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="/css/css_dashboard/dashboard_styles.css" />
   </head>
   <body>
+    <%- include('partials/sucess.ejs') %>
     <div
       class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header"
     >
@@ -86,6 +87,9 @@
             </ul>
           </div> -->
         </header>
+
+  
+        
         <nav class="demo-navigation mdl-navigation">
           <a class="mdl-navigation__link" href="#"
             ><i
@@ -116,6 +120,7 @@
           >
         </nav>
       </div>
+      
       <main  class="mdl-layout__content mdl-color--grey-100">
       
         <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
@@ -171,5 +176,11 @@
       </main>
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script>
+      const closeIt=()=>{
+              document.querySelector(".sucess-flash-msg").style.display="none";
+              
+          }
+  </script>
   </body>
 </html>
