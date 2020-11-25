@@ -8,6 +8,8 @@ module.exports.OwnerLogin = async (req, res, next) => {
     const { username, password } = req.body
     const ownerUsername = process.env.OWNER_USERNAME;
     const ownerPassword = process.env.OWNER_PASSWORD;
+    console.log(req.body)
+    console.log(ownerUsername, ownerPassword)
 
     try {
         if (username === ownerUsername && password === ownerPassword) {
@@ -126,6 +128,7 @@ exports.logout_get = async (req, res, next) => {
 
 exports.uploadResult_post = async (req, res, next) => {
     try {
+        console.log(req.body)
         console.log('Started Controller')
         let { sem, branch, year } = req.body
         console.log("Debug log:",req.file);
