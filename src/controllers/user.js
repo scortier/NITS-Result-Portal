@@ -31,7 +31,8 @@ exports.login_post = async (req, res, next) => {
         // res.status(200).json(user)
         res.render('profile', { user })
     } catch (error) {
-        next(error)
+        res.redirect("/user/login")
+        // next(error)
     }
 }
 
