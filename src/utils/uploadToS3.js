@@ -34,7 +34,7 @@ const upload = multer({
     storage: multerS3({
         s3: s3,
         acl: 'public-read',
-        bucket: 'crena-bucket',
+        bucket: 'nits-result-portal',
         metadata: function (req, file, cb) {
             cb(null, { fieldName: file.fieldname })
         },
