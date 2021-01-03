@@ -33,7 +33,7 @@ const addRow = () => {
     <td>
         <div class="mdl-textfield mdl-js-textfield">
             <input
-                class="mdl-textfield__input"
+                class="mdl-textfield__input year"
                 type="text"
                 id="year${count}"
                 form="row${count}"
