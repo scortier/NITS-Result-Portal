@@ -61,7 +61,11 @@
         class="demo-drawer mdl-layout__drawer"
       >
         <header class="demo-drawer-header">
-          <img src="/images/user.jpg" class="demo-avatar" />
+          <% if(user.profileImage){ %>
+            <img src="<%= user.profileImage %>" class="demo-avatar" />
+          <% } else{ %>  
+        <img src="/images/user.jpg" class="demo-avatar" />
+         <% } %>
           
           <p><%=user.name%></p>
           <!-- <div class="demo-avatar-dropdown">

@@ -71,7 +71,12 @@
       </header>
             <div class="demo-drawer mdl-layout__drawer">
                 <header class="demo-drawer-header">
+
+                    <% if(user.profileImage){ %>
+                        <img src="<%= user.profileImage %>" class="demo-avatar" />
+                      <% } else{ %>  
                     <img src="/images/user.jpg" class="demo-avatar" />
+                     <% } %>
 
                     <p class="userName"><%=user.name%></p>
                     <!-- Custom select structure -->
@@ -169,7 +174,11 @@
                     <div class="container">
                         <div class="profile_image">
                             <div class="image_container">
-                                <img src="/images/user.jpg" alt="" />
+                                <% if(user.profileImage){ %>
+                                    <img src="<%= user.profileImage %>" class="demo-avatar" />
+                                  <% } else{ %>  
+                                <img src="/images/user.jpg" class="demo-avatar" />
+                                 <% } %>
                             </div>
                         </div>
                         <h4 class="heading">Change Password</h4>
