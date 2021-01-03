@@ -385,10 +385,26 @@ table {
     width: 50vw;
 }
 th {
-    font-size: 0.9rem !important  ;
+    text-align: left !important;
+    font-size: 1.1rem !important;
 }
-.mdl-layout__header-row h4{
-    font-family: "Open Sans", 'Times New Roman', Times, serif;
+td {
+    text-align: left !important;
+}
+/* TRY */
+tr:nth-child(even) {
+    background: rgb(240, 240, 240);
+}
+tr:nth-child(odd) {
+    background: rgb(255, 255, 255);
+}
+
+.thead_child {
+    background-color: #5ebeca !important;
+}
+/* TRY */
+.mdl-layout__header-row h4 {
+    font-family: 'Open Sans', 'Times New Roman', Times, serif;
     font-size: 2rem;
     text-align: center;
     width: 100%;
@@ -434,8 +450,11 @@ th {
         width: 95% !important;
         font-size: 2.2rem;
     }
-    table{
-        margin-top: 0!important;
+    table {
+        margin-top: 0 !important;
+    }
+    th {
+        font-size: 0.9rem !important;
     }
 }
 @media (max-width: 480px) {
