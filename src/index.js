@@ -3,7 +3,7 @@ const compression = require('compression')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const path = require('path')
-const connectDB = require('./connect')
+const connectDB = require('./connect');
 
 require('dotenv').config()
 const app = express()
