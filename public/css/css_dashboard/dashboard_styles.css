@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -323,87 +324,120 @@ thead th {
 }
 
 /* flash message sucess*/
-.sucess-flash-msg{
-        background-color:#1dd00c; 
-        margin :0 auto ;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        color: #fff;
-        font-size:1.2rem 
+.sucess-flash-msg {
+    background-color: #1dd00c;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.2rem;
 }
-.error{
+.error {
     margin: 7px;
-  }
-  .cross{
+}
+.cross {
     position: absolute;
-    right:100px;
-  }
-.cross:hover{
-      cursor: pointer !important
+    right: 100px;
+}
+.cross:hover {
+    cursor: pointer !important;
+}
+table {
+    margin-top: 10vh;
+    height: 70vh;
+    width: 50vw;
+}
+th {
+    text-align: left !important;
+    font-size: 1.1rem !important;
+}
+td {
+    text-align: left !important;
+}
+/* TRY */
+tr:nth-child(even) {
+    background: rgb(240, 240, 240);
+}
+tr:nth-child(odd) {
+    background: rgb(255, 255, 255);
+}
+
+.thead_child {
+    background-color: #5ebeca !important;
+}
+/* TRY */
+.mdl-layout__header-row h4 {
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 620px) {
+    .mdl-layout__header-row h4 {
+        width: 89%;
+        font-size: 1.8rem;
+    }
+    .table-container {
+        margin-top: 10vh;
+        min-height: 60vh;
+    }
+    mdl-grd,
+    mdl-cell {
+        position: relative;
+    }
+    td {
+        max-width: 30vw;
+        min-height: 10px;
     }
 
-    @media (max-width: 800px) {
-        .table-container{
-            width: 85%;
-        }
-        th,td{
-            padding: 8px !important;
-        }
-        input, select{
-            font-size: 15px;
-        }
-        .mdl-textfield__input{
-            font-size: 13px;
-            width: 100%;
-        }
-        input{
-            width: 100%;
-        }
-        .year{
-            width: 50px;
-        }
+    td {
+        font-size: 10px;
+        min-height: 10px !important;
     }
-    @media (max-width: 620px) {
-        .table-container {
-            margin-top: 10vh;
-            min-height: 60vh;
-        }
-        mdl-grd,
-        mdl-cell {
-            position: relative;
-        }
-        td {
-            max-width: 30vw;
-            min-height: 10px;
-        }
-    
-        td {
-            font-size: 10px;
-            min-height: 10px !important;
-        }
-        td span {
-            font-size: 10px;
-        }
-        td span span {
-            font-size: 10px;
-        }
+    td span {
+        font-size: 10px;
     }
-    @media (max-width: 480px) {
-        .table-container {
-            margin-top: 10vh;
-            min-height: 60vh;
-            width: 90%;
-        }
-        .left {
-            padding-right: 0 !important;
-        }
-        td {
-            overflow-x: auto;
-            word-wrap: normal;
-        }
-        th,td{
-            padding: 4px !important;
-        }
+    td span span {
+        font-size: 10px;
+    }
+}
+.left {
+    padding-right: 40% !important;
+}
+@media (max-width: 1024px) {
+    .demo-header {
+        height: 120px;
+    }
+    .mdl-layout__header-row h4 {
+        width: 95% !important;
+        font-size: 2.2rem;
+    }
+    table {
+        margin-top: 0 !important;
+    }
+    th {
+        font-size: 0.9rem !important;
+    }
+}
+@media (max-width: 480px) {
+    .demo-header {
+        height: 120px;
+    }
+    .mdl-layout__header-row h4 {
+        width: 87%;
+        font-size: 1.8rem;
+    }
+    .table-container {
+        margin-top: 10vh;
+        min-height: 60vh;
+    }
 
+    .left {
+        padding-right: 0 !important;
     }
+    td {
+        overflow-x: auto;
+    }
+}
