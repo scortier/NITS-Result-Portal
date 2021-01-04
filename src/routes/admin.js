@@ -26,6 +26,9 @@ router.get("/result/upload", (req, res)=>{
 //     console.log("File uploaded successfully");
 //     res.status(200).send("Uploaded")
 // })
-
+router.post('/upload/test', (req,res) => {
+    console.log(req.body)
+    res.sendStatus(200);
+})
 
 module.exports = router

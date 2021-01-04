@@ -1,16 +1,23 @@
 let count = 0 // count of all the rows / forms in the body
 const tbodyElem = document.getElementById('tbody') 
 
+const sendForm = (formData) =>  {
+    return fetch('/admin/result/upload', {
+        method: "POST",
+        body: formData
+    }).then(res => res.json()).then(data => console.log(data))
+    .catch(err => console.log(err))
+}
+
 const addRow = () => {
     console.log('clicked')
     count += 1;
     let row_template = `<tr>
     <td><form 
-        action="/admin/uploadtest" 
-        method="POST" 
         class="row-form" 
-        id="row${count}" 
+        id="row${count}"
         onkeydown="return event.key != 'Enter';"
+        accept=".csv"
         ></form>
     </td>
     <td class="mdl-data-table__cell--non-numeric">
@@ -19,15 +26,14 @@ const addRow = () => {
                 form="row${count}"
                 id="file${count}"
                 type="file"
-                class="validate"
-                name="file"
+                name="csvfile"
             />
         </div>
     </td>
     <td>
         <div class="mdl-textfield mdl-js-textfield">
             <input
-                class="mdl-textfield__input"
+                class="mdl-textfield__input year"
                 type="text"
                 id="year${count}"
                 form="row${count}"
@@ -101,13 +107,21 @@ const addRow = () => {
 const uploadAll = () => {
     if(confirm(`This will upload all ${count} file(s)?`))
     {
+        document.getElementById('submit-all').innerHTML = 'Processing...'
         allForms = document.getElementsByClassName('row-form')
         // allForms.forEach((formElement) => {
         //     formElement.submit()
         // })
+        promises = []
         for(let i = 0; i < allForms.length; i++) {
-            allForms[i].submit();
+            console.log("Submitting Form", i);
+            // allForms[i].submit();
+            formData = new FormData(allForms[i])
+            promises.push(sendForm(formData))
         }
+        Promise.all(promises).then(() => 
+            document.getElementById('submit-all').innerHTML = 'Upload All Files'
+        )
     }
 }
 window.onload = () => {
