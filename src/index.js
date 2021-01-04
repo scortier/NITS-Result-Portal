@@ -5,8 +5,12 @@ const compression = require('compression')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const path = require('path')
+<<<<<<< HEAD
 const flash = require('connect-flash')
 const connectDB = require('./connect')
+=======
+const connectDB = require('./connect');
+>>>>>>> master
 
 const app = express()
 app.use(express.json())
