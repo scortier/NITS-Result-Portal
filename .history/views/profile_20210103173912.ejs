@@ -63,11 +63,7 @@
         class="demo-drawer mdl-layout__drawer"
       >
         <header class="demo-drawer-header">
-          <% if(user.profileImage){ %>
-            <img src="<%= user.profileImage %>" class="demo-avatar" />
-          <% } else{ %>  
-        <img src="/images/user.jpg" class="demo-avatar" />
-         <% } %>
+          <img src="/images/user.jpg" class="demo-avatar" />
           
           <p><%=user.name%></p>
           <!-- <div class="demo-avatar-dropdown">
@@ -129,10 +125,10 @@
       
       <main  class="mdl-layout__content mdl-color--grey-100">
       
-        <table class="mdl-data-table  mdl-js-data-table mdl-data-table mdl-shadow--1dp">
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--1dp">
           <thead>
-            <tr class="thead_child">
-              <th class=" mdl-data-table__cell--non-numeric">Subject</th>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Subject</th>
               <th>Subject Code</th>
               <th>Grade</th>
               <th>Pointer</th>
@@ -178,11 +174,9 @@
           </tbody>
         </table>
         
-        
+
       </main>
-      
     </div>
-    <%- include('partials/footer.ejs') %>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script>
       const closeIt=()=>{
@@ -190,7 +184,5 @@
               
           }
   </script>
-
-  
   </body>
 </html>
