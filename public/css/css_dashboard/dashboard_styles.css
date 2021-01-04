@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -343,30 +344,43 @@ thead th {
     cursor: pointer !important;
 }
 
-@media (max-width: 800px) {
-    .table-container {
-        width: 85%;
-    }
-    th,
-    td {
-        padding: 8px !important;
-    }
-    input,
-    select {
-        font-size: 15px;
-    }
-    .mdl-textfield__input {
-        font-size: 13px;
-        width: 100%;
-    }
-    input {
-        width: 100%;
-    }
-    .year {
-        width: 50px;
-    }
+table {
+    margin-top: 10vh;
+    height: 70vh;
+    width: 50vw;
 }
+th {
+    text-align: left !important;
+    font-size: 1.1rem !important;
+}
+td {
+    text-align: left !important;
+}
+/* TRY */
+tr:nth-child(even) {
+    background: rgb(240, 240, 240);
+}
+tr:nth-child(odd) {
+    background: rgb(255, 255, 255);
+}
+
+.thead_child {
+    background-color: #5ebeca !important;
+}
+/* TRY */
+.mdl-layout__header-row h4 {
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
 @media (max-width: 620px) {
+    .mdl-layout__header-row h4 {
+        width: 89%;
+        font-size: 1.8rem;
+    }
+
     .table-container {
         margin-top: 10vh;
         min-height: 60vh;
@@ -391,6 +405,7 @@ thead th {
         font-size: 10px;
     }
 }
+
 @media (max-width: 480px) {
     .table-container {
         margin-top: 10vh;
