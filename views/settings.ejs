@@ -71,7 +71,12 @@
       </header>
             <div class="demo-drawer mdl-layout__drawer">
                 <header class="demo-drawer-header">
+
+                    <% if(user.profileImage){ %>
+                        <img src="<%= user.profileImage %>" class="demo-avatar" />
+                      <% } else{ %>  
                     <img src="/images/user.jpg" class="demo-avatar" />
+                     <% } %>
 
                     <p class="userName"><%=user.name%></p>
                     <!-- Custom select structure -->
@@ -167,11 +172,19 @@
             <main class="mdl-layout__content mdl-color--grey-100">
                 <div class="settings">
                     <div class="container">
-                        <div class="profile_image">
-                            <div class="image_container">
-                                <img src="/images/user.jpg" alt="" />
-                            </div>
+                 <form action="/user/settings/profile/image/<%= user._id %>" enctype="multipart/form-data" method="POST">
+                    <div class="profile_image">
+                        <div class="image_container">
+                            <% if(user.profileImage){ %>
+                                <img src="<%= user.profileImage %>" class="demo-avatar" />
+                              <% } else{ %>  
+                            <img src="/images/user.jpg" class="demo-avatar" />
+                             <% } %>
                         </div>
+                    </div>
+                    <input type="file" name="profileImage">
+                    <input type="submit" value="Change picture">
+                 </form>
                         <h4 class="heading">Change Password</h4>
                         <div class="profile_settings">
                             <form action="#" class="form" autocomplete="off">
