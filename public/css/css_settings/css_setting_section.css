@@ -1,4 +1,17 @@
+.pancake{
+  display: none;
+}
+/* hide scrollbar for chrome,safari, and opera */
+.demo-drawer::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.demo-drawer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 .settings {
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,6 +38,7 @@
           flex-direction: column;
   height: 60rem;
   width: 35%;
+  padding-top: 10vh;
   background-color: var(--dwhite);
 }
 
@@ -84,6 +98,11 @@
           align-items: center;
   width: 100%;
   padding: 2rem 0;
+}
+
+.heading{
+  width: 100%;
+  text-align: center;
 }
 
 .form {
@@ -167,7 +186,17 @@
 
 @media (max-width: 700px) {
   .settings .container {
+    padding-top: 20vh;
     width: 85%;
+  }
+  .form input[type='text'],.form input[type='password']{
+    padding: 0.5em;
+  }
+  .heading{
+    margin: 6px 0px 3px;
+  }
+  .profile_settings{
+    padding: 10px 0px !important;
   }
 }
 

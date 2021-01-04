@@ -200,47 +200,10 @@ nav a:hover {
     bottom: 5%;
 }
 
-@media (max-width: 620px) {
-    .table-container {
-        margin-top: 10vh;
-        min-height: 60vh;
-    }
-    mdl-grd,
-    mdl-cell {
-        position: relative;
-    }
-    td {
-        max-width: 30vw;
-        min-height: 10px;
-    }
-
-    td {
-        font-size: 10px;
-        min-height: 10px !important;
-    }
-    td span {
-        font-size: 10px;
-    }
-    td span span {
-        font-size: 10px;
-    }
-}
 .left {
     padding-right: 40% !important;
 }
-@media (max-width: 480px) {
-    .table-container {
-        margin-top: 10vh;
-        min-height: 60vh;
-    }
 
-    .left {
-        padding-right: 0 !important;
-    }
-    td {
-        overflow-x: auto;
-    }
-}
 .mdl-layout__header {
     box-shadow: none;
 }
@@ -378,4 +341,69 @@ thead th {
   }
 .cross:hover{
       cursor: pointer !important
+    }
+
+    @media (max-width: 800px) {
+        .table-container{
+            width: 85%;
+        }
+        th,td{
+            padding: 8px !important;
+        }
+        input, select{
+            font-size: 15px;
+        }
+        .mdl-textfield__input{
+            font-size: 13px;
+            width: 100%;
+        }
+        input{
+            width: 100%;
+        }
+        .year{
+            width: 50px;
+        }
+    }
+    @media (max-width: 620px) {
+        .table-container {
+            margin-top: 10vh;
+            min-height: 60vh;
+        }
+        mdl-grd,
+        mdl-cell {
+            position: relative;
+        }
+        td {
+            max-width: 30vw;
+            min-height: 10px;
+        }
+    
+        td {
+            font-size: 10px;
+            min-height: 10px !important;
+        }
+        td span {
+            font-size: 10px;
+        }
+        td span span {
+            font-size: 10px;
+        }
+    }
+    @media (max-width: 480px) {
+        .table-container {
+            margin-top: 10vh;
+            min-height: 60vh;
+            width: 90%;
+        }
+        .left {
+            padding-right: 0 !important;
+        }
+        td {
+            overflow-x: auto;
+            word-wrap: normal;
+        }
+        th,td{
+            padding: 4px !important;
+        }
+
     }
