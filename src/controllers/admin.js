@@ -1,13 +1,15 @@
 const Admin = require('../models/admin')
 const jwt = require('jsonwebtoken')
-const dataExtraction = require('../../experiments/extract')
 const forStudent = require('../utils/uploadResultUtil')
-// const uploadResultUtil = require('../utils/uploadResultUtil')
+const dataExtraction = require("../utils/dataExtraction")
+const path = require('path')
 
 module.exports.OwnerLogin = async (req, res, next) => {
     const { username, password } = req.body
     const ownerUsername = process.env.OWNER_USERNAME;
     const ownerPassword = process.env.OWNER_PASSWORD;
+    console.log(req.body)
+    console.log(ownerUsername, ownerPassword)
 
     try {
         if (username === ownerUsername && password === ownerPassword) {
@@ -126,19 +128,23 @@ exports.logout_get = async (req, res, next) => {
 
 exports.uploadResult_post = async (req, res, next) => {
     try {
+        console.log(req.body)
         console.log('Started Controller')
         let { sem, branch, year } = req.body
-        let students = await dataExtraction()
+        console.log("Debug log:",req.file);
+        let csvfile = req.file
+        let filename = csvfile.filename
+        let students = await dataExtraction(filename)
 
         console.log('Found data from csv', students)
 
         students.forEach(async (student) => {
-            console.log(student)
+            // console.log(student)
             await forStudent(student, branch, sem, year)
         })
         res.status(200).send({ message: 'successful' })
     } catch (error) {
         console.log(error)
-        next()
+        next(error)
     }
 }
