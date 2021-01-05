@@ -1,6 +1,7 @@
 const multer = require('multer')
 const path = require('path')
 const fs = require('fs')
+const { v4: uuidv4 } = require('uuid');
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -17,7 +18,7 @@ const storage = multer.diskStorage({
     filename: (req, file, callback) => {
         callback(
             null,
-            `${req.body.branch}-SEM-${req.body.sem}-${req.body.year}${path.extname(
+            `${uuidv4()}${path.extname(
                 file.originalname
             )}`
         )
@@ -33,7 +34,7 @@ const checkFileType = (file, cb) => {
     if (mimetype && extname) {
         return cb(null, true)
     } else {
-        cb(null, false)
+        cb(new Error('Only CSV are allowed'))
     }
 }
 

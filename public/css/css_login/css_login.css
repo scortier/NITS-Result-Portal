@@ -298,36 +298,4 @@ main {
     text-align: center;
   }
 }
-/* flash error message */
-.alert-flash-msg{
-  background-color:rgba(247, 150, 74  ) ; 
-  margin :0 auto ;
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  color: #fff;
-  font-size:1.2rem
-}
-.error{
-  margin: 7px;
-}
-.cross{
-  position: absolute;
-  right:100px;
-}
-.cross:hover{
-    cursor: pointer !important
-  }
-  .sucess-flash-msg{
-    background-color:#1dd00c; 
-    margin :0 auto ;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    color: #fff;
-    font-size:1.2rem 
-}
-
-
-
 /*# sourceMappingURL=css_login.css.map */
