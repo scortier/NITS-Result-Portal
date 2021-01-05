@@ -12,12 +12,13 @@ const sendForm = (formData) =>  {
 const addRow = () => {
     console.log('clicked')
     count += 1;
-    let row_template = `<tr>
+    let row_template = /*html*/`<tr>
     <td><form 
         class="row-form" 
         id="row${count}"
         onkeydown="return event.key != 'Enter';"
         accept=".csv"
+        enctype="multipart/form-data"
         ></form>
     </td>
     <td class="mdl-data-table__cell--non-numeric">
