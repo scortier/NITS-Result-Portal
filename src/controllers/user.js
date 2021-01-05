@@ -31,8 +31,10 @@ exports.login_post = async (req, res, next) => {
             httpOnly: false,
         })
         req.flash('message', 'Logged in sucessfully')
-        res.render('profile', { user,flashMessages: { message: req.flash('message') } })
-        
+        res.render('profile', {
+            user,
+            flashMessages: { message: req.flash('message') },
+        })
     } catch (error) {
         req.flash('message', 'Wrong username or password')
         res.render('login', { flash: { message: req.flash('message') } })
@@ -75,5 +77,25 @@ exports.register = async (req, res, next) => {
         res.status(201).json(user)
     } catch (error) {
         next(error)
+    }
+}
+
+exports.changeProfileImage = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId)
+        if (!user) {
+            res.status(400).json({
+                status: 'fail',
+                message: 'No user found',
+            })
+        }
+        user.profileImage = req.file.location
+        await user.save()
+        res.render('./settings', { user })
+    } catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: err,
+        })
     }
 }

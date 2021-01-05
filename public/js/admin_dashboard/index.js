@@ -1,12 +1,14 @@
 let count = 0 // count of all the rows / forms in the body
-const tbodyElem = document.getElementById('tbody') 
-
-const sendForm = (formData) =>  {
+const tbodyElem = document.getElementById('tbody')
+var inputs = document.querySelectorAll('.inputfile')
+const sendForm = (formData) => {
     return fetch('/admin/result/upload', {
-        method: "POST",
-        body: formData
-    }).then(res => res.json()).then(data => console.log(data))
-    .catch(err => console.log(err))
+        method: 'POST',
+        body: formData,
+    })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err))
 }
 
 const addRow = () => {
@@ -23,28 +25,28 @@ const addRow = () => {
     </td>
     <td class="mdl-data-table__cell--non-numeric">
         <div class="input-field">
-            <input
+           <input
+                class="inputfile"
                 form="row${count}"
                 id="file${count}"
                 type="file"
                 name="csvfile"
-            />
+                data-multiple-caption="{count} files selected" 
+               />
+            <label for="file${count}">Choose a file</label>
         </div>
     </td>
     <td>
         <div class="mdl-textfield mdl-js-textfield">
             <input
-                class="mdl-textfield__input"
+                class="mdl-textfield__input year"
                 type="text"
                 id="year${count}"
                 form="row${count}"
                 name="year"
+                placeholder = "Year"
             />
-            <label
-                class="mdl-textfield__label"
-                for="year${count}"
-                >Year</label
-            >
+           
         </div>
     </td>
     <td>
@@ -102,26 +104,28 @@ const addRow = () => {
     </tr>`
 
     tbodyElem.insertAdjacentHTML('beforeend', row_template)
-    console.log(document.getElementsByClassName('row-form'))
+
+    // console.log(document.getElementsByClassName('row-form'))
 }
 
 const uploadAll = () => {
-    if(confirm(`This will upload all ${count} file(s)?`))
-    {
+    if (confirm(`This will upload all ${count} file(s)?`)) {
         document.getElementById('submit-all').innerHTML = 'Processing...'
         allForms = document.getElementsByClassName('row-form')
         // allForms.forEach((formElement) => {
         //     formElement.submit()
         // })
         promises = []
-        for(let i = 0; i < allForms.length; i++) {
-            console.log("Submitting Form", i);
+        for (let i = 0; i < allForms.length; i++) {
+            console.log('Submitting Form', i)
             // allForms[i].submit();
             formData = new FormData(allForms[i])
             promises.push(sendForm(formData))
         }
-        Promise.all(promises).then(() => 
-            document.getElementById('submit-all').innerHTML = 'Upload All Files'
+        Promise.all(promises).then(
+            () =>
+                (document.getElementById('submit-all').innerHTML =
+                    'Upload All Files')
         )
     }
 }
@@ -132,3 +136,27 @@ window.onload = () => {
 document.getElementById('add-row').addEventListener('click', addRow)
 document.getElementById('submit-all').addEventListener('click', uploadAll)
 
+document.body.addEventListener('change', () => {
+    inputs = document.querySelectorAll('.inputfile')
+    inputs.forEach((input) => {
+        var label = input.nextElementSibling
+
+        input.addEventListener('focus', function () {
+            input.classList.add('has-focus')
+        })
+        input.addEventListener('blur', function () {
+            input.classList.remove('has-focus')
+        })
+
+        var fileName = ''
+        if (input.files && input.files.length > 1) {
+            fileName = (
+                this.getAttribute('data-multiple-caption') || ''
+            ).replace('{count}', input.files.length)
+        }
+        if (input.files[0] != undefined) fileName = input.files[0].name
+
+        if (input.files[0] != undefined)
+            label.innerHTML = fileName.substr(0, 20)
+    })
+})
