@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const forStudent = require('../utils/uploadResultUtil')
 const dataExtraction = require("../utils/dataExtraction")
 const path = require('path')
+const File = require('../models/file')
 
 module.exports.OwnerLogin = async (req, res, next) => {
     const { username, password } = req.body
@@ -133,8 +134,13 @@ exports.uploadResult_post = async (req, res, next) => {
         let { sem, branch, year } = req.body
         console.log("Debug log:",req.file);
         let csvfile = req.file
-        let filename = csvfile.filename
-        let students = await dataExtraction(filename)
+        const dbFile = await File.create({
+            name: csvfile.filename,
+            year: req.body.year,
+            sem: parseInt(req.body.sem),
+            branch: req.body.branch
+        })
+        let students = await dataExtraction(dbFile.name)
 
         console.log('Found data from csv', students)
 
