@@ -366,7 +366,9 @@ td {
     text-align: center;
     width: 100%;
 }
-
+input{
+    outline: none;
+}
 @media (max-width: 620px) {
     .mdl-layout__header-row h4 {
         width: 89%;
