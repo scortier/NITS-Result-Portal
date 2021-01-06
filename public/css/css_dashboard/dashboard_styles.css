@@ -327,27 +327,6 @@ thead {
      margin-top: 5px; 
 }*/
 
-/* flash message sucess*/
-.sucess-flash-msg {
-    background-color: #1dd00c;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.2rem;
-}
-.error {
-    margin: 7px;
-}
-.cross {
-    position: absolute;
-    right: 100px;
-}
-.cross:hover {
-    cursor: pointer !important;
-}
-
 table {
     margin-top: 10vh;
     height: auto;
@@ -607,22 +586,8 @@ select:focus + .focus {
     margin: 0 20%;
 }
 
-/*footer styles*/
-
 footer {
-    position: absolute;
+    position: relative;
     font-size: 14px;
     z-index: 10;
-}
-
-@media (max-width: 600px){
-    footer {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    footer {
-        font-size: 9px;
-    }
 }
