@@ -7,6 +7,8 @@
       name="description"
       content="A front-end template that helps you build fast, modern mobile web apps."
     />
+    <link rel="shortcut icon" href="/images/user.jpg" />
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
@@ -15,22 +17,22 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="icon" sizes="192x192" href="/images/android-desktop.png" />
+    <!-- <link rel="icon" sizes="192x192" href="/images/android-desktop.png" /> -->
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="Material Design Lite" />
-    <link rel="apple-touch-icon-precomposed" href="/images/ios-desktop.png" />
+    <!-- <link rel="apple-touch-icon-precomposed" href="/images/ios-desktop.png" /> -->
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta
+    <!-- <meta
       name="msapplication-TileImage"
       content="images/touch/ms-touch-icon-144x144-precomposed.png"
-    />
+    /> -->
     <meta name="msapplication-TileColor" content="#3372DF" />
 
-    <link rel="shortcut icon" href="/images/favicon.png" />
+    <!-- <link rel="shortcut icon" href="/images/favicon.png" /> -->
 
     <link
       rel="stylesheet"
@@ -44,12 +46,15 @@
       rel="stylesheet"
       href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css"
     />
-    <link rel="stylesheet" href="../css/css_dashboard/dashboard_styles.css" />
+    <link rel="stylesheet" href="/css/css_global.css" />
+    <!-- <link rel="stylesheet" href="../css/css_dashboard/dashboard_styles.css" /> -->
   </head>
-  <body style="background-color: #e0f2ff;">
-    <center><h1>NITS RESULT PORTAL</h1></center>
-    <center><h4><a href="/user/login">Click here </a> to visit students login page</h4></center>
-    <center><h4><a href="/admin/owner/login">Click here </a> to visit Admin login page</h4></center>
-
-     </body>
+  <body style="background-color: #e0f2ff; overflow: hidden;">
+    <div>
+      <center><h1>NITS RESULT PORTAL</h1></center>
+      <center><h4><a href="/user/login">Click here </a> to visit students login page</h4></center>
+      <center><h4><a href="/admin/owner/login">Click here </a> to visit Admin login page</h4></center>
+    </div>
+    <%- include('partials/footer.ejs') %>
+  </body>
 </html>

@@ -61,12 +61,12 @@ main {
   background-position: center;
   text-align: start;
   background-color: var(--primaryColor);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 .login .illustration:hover {
-  width: 50%;
+  width: 43%;
 }
 
 .login .illustration .mtitle {

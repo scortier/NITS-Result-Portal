@@ -1,0 +1,7 @@
+  <% if(flash.message.length>0){ %>
+      <div class="alert-flash-msg">
+        <i class="material-icons error">error</i>  <%= flash.message %>
+        <div  onclick="closeIt()" class="material-icons cross">clear</div>
+      </div>
+  <% } %>
+  

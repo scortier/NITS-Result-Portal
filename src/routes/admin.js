@@ -2,6 +2,7 @@
 const router = require('express').Router()
 const adminController = require('../controllers/admin')
 const { adminAuth, Role ,adminIsLoggedIn} = require('../middlewares/adminAuth')
+const uploadCsvFile = require("../utils/multer")
 
 // owner
 router.post('/owner/login', adminController.OwnerLogin)
@@ -16,5 +17,18 @@ router.get('/login',adminIsLoggedIn(Role.Moderator),adminController.adminLogin_g
 router.get('/dashboard',adminAuth([Role.Owner,Role.Moderator,Role.Viewer]),adminController.dashBoardLogin_get)
 router.get('/logout',adminController.logout_get)
 
-router.post('/result/upload', adminController.uploadResult_post)
+router.post('/result/upload', uploadCsvFile.single('csvfile'),adminController.uploadResult_post)
+
+router.get("/result/upload", (req, res)=>{
+    res.render('upload')
+})
+// router.post('/result/upload/csv', uploadCsvFile.single('csvfile'), (req, res)=>{
+//     console.log("File uploaded successfully");
+//     res.status(200).send("Uploaded")
+// })
+router.post('/upload/test', (req,res) => {
+    console.log(req.body)
+    res.sendStatus(200);
+})
+
 module.exports = router
