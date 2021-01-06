@@ -606,3 +606,23 @@ select:focus + .focus {
     width: 70%;
     margin: 0 20%;
 }
+
+/*footer styles*/
+
+footer {
+    position: absolute;
+    font-size: 14px;
+    z-index: 10;
+}
+
+@media (max-width: 600px){
+    footer {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        font-size: 9px;
+    }
+}
