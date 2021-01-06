@@ -15,6 +15,9 @@
 .mdl-layout__drawer .avatar {
     margin-bottom: 16px;
 }
+.mdl-layout-spacer {
+    max-height: 10vh !important;
+}
 .demo-drawer {
     border: none;
 }
@@ -343,6 +346,14 @@ thead th {
       cursor: pointer !important
     }
 
+/* footer styles */
+
+footer {
+    position: absolute;
+    z-index: 10;
+    font-size: 14px;
+}
+
     @media (max-width: 800px) {
         .table-container{
             width: 85%;
@@ -388,6 +399,10 @@ thead th {
         td span span {
             font-size: 10px;
         }
+        footer {
+            font-size: 12px;
+        }
+
     }
     @media (max-width: 480px) {
         .table-container {
@@ -406,4 +421,8 @@ thead th {
             padding: 4px !important;
         }
 
-    }
+        footer {
+            font-size: 9px;
+          }
+    }    
+
