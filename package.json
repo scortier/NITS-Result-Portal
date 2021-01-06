@@ -31,8 +31,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.5",
     "multer": "^1.4.2",
-    "multer-s3": "^2.9.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "uuid": "^8.3.2",
+    "multer-s3": "^2.9.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

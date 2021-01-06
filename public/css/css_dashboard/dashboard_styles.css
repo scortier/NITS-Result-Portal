@@ -349,21 +349,30 @@ table {
     margin-top: 10vh;
     height: auto;
     width: 50vw;
+    border-collapse: separate !important;
+    border: 3px solid white !important;
+    border-spacing: 0 !important;
+    border-radius: 6px !important;
+    box-shadow: 4px 11px 15px -6px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 4px 11px 15px -6px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 4px 11px 15px -6px rgba(0, 0, 0, 0.15);
 }
 th {
-    text-align: left !important;
+    border: none !important;
+    text-align: center !important;
     font-size: 1.1rem !important;
 }
+th:first-child {
+    border-radius: 6px 0 0 0 !important;
+}
+th:last-child {
+    border-radius: 0 6px 0 0 !important;
+}
 td {
-    text-align: left !important;
+    border: none !important;
+    text-align: center !important;
 }
 /* TRY */
-tr:nth-child(even) {
-    background: rgb(240, 240, 240);
-}
-tr:nth-child(odd) {
-    background: rgb(255, 255, 255);
-}
 
 .thead_child {
     background-color: #5ebeca !important;
@@ -406,7 +415,9 @@ tr:nth-child(odd) {
         font-size: 10px;
     }
 }
-
+.mdl-layout-spacer {
+    max-height: 10vh !important;
+}
 @media (max-width: 480px) {
     .table-container {
         margin-top: 10vh;
