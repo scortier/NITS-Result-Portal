@@ -6,9 +6,10 @@
     box-sizing: border-box;
 }
 .demo-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 24px;
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    object-fit: cover;
 }
 .demo-layout .mdl-layout__header .mdl-layout__drawer-button {
     color: rgba(0, 0, 0, 0.54);
@@ -320,7 +321,7 @@ thead th {
 }
 
 #submit-all {
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }
 
 /* flash message sucess*/
@@ -583,4 +584,11 @@ select:focus + .focus {
         padding: 2px 16px;
         display: block;
     }
+}
+.flexbuttons {
+    display: flex;
+    padding: 1em;
+    justify-content: space-around;
+    width: 70%;
+    margin: 0 20%;
 }
