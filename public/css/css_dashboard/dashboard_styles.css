@@ -480,7 +480,7 @@ select::-ms-expand {
     width: 100%;
     min-width: 15ch;
     max-width: 30ch;
-    border: 1px solid var(--offBlack1);
+    /* border: 1px solid var(--offBlack1); */
     border-radius: 0.25em;
     padding: 0.25em 0.5em;
     font-size: 1.25rem;
