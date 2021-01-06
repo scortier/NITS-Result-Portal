@@ -39,7 +39,6 @@
         <!-- <link rel="shortcut icon" href="/images/favicon.png" /> -->
         <link rel="shortcut icon" href="/images/user.jpg" />
 
-
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
@@ -52,6 +51,7 @@
             rel="stylesheet"
             href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css"
         />
+        <link rel="stylesheet" href="/css/css_global.css" />
         <link
             rel="stylesheet"
             href="../css/css_dashboard/dashboard_styles.css"
@@ -83,13 +83,16 @@
                             >settings</i
                         >Create Admin</a
                     >
+                    <div
+                        class="mdl-layout-spacer"
+                        style="max-height: 60% !important"
+                    ></div>
                     <a class="mdl-navigation__link" href="/admin/logout"
                         ><i class="material-icons" role="presentation"
                             >account_circle</i
                         >Logout</a
                     >
 
-                    <div class="mdl-layout-spacer"></div>
                     <a class="mdl-navigation__link" href=""
                         ><i class="material-icons" role="presentation"
                             >help_outline</i
@@ -111,9 +114,6 @@
                     </div>
                 </div>
             </main>
-<<<<<<< HEAD
-            <%- include('partials/footer.ejs') %>
-=======
             <div class="flexbuttons">
                 <button
                     id="add-row"
@@ -128,9 +128,9 @@
                     Upload All Files
                 </button>
             </div>
->>>>>>> e4e5fa6a0b6d84a17dbac20f549f8f1bf1eb2bd2
+            <%- include('partials/footer.ejs') %>
         </div>
-        
+
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script src="/js/admin_dashboard/index.js"></script>
         <script>
@@ -144,7 +144,6 @@
             src="about:blank"
             style="display: none"
         ></iframe>
-
     </body>
     <script>
         // -----------------------------------------------------------------------------
