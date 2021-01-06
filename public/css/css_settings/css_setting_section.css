@@ -55,6 +55,7 @@
 
 .settings .container .profile_image .image_container img {
   width: 100%;
+  height: 100%;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -157,6 +158,26 @@
 
 .form input[type='submit']:hover {
   opacity: 0.9;
+}
+
+.file-submit {
+  cursor: pointer;
+  border: none;
+  padding: 1em 1.5em;
+  background-color: var(--primaryColor);
+  color: var(--dwhite);
+  border-radius: 5px;
+  margin: 2em 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.file-submit:hover {
+  opacity: 0.9;
+}
+
+.file-input {
+  margin-left: 100px;
 }
 
 @media (max-width: 1300px) {
