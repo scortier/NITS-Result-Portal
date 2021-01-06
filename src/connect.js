@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-function connectDB() {
+function connectDB(){
     var url = "";
     if (process.env.DB_MODE === 'local' || url === '' || !url) {
         url = 'mongodb://localhost:27017/NitsResultPortal'
@@ -17,7 +17,6 @@ function connectDB() {
             if (err) console.log(err)
             else console.log('Database Connected!')
         }
-    )
-}
-
-module.exports = connectDB
+    );
+};
+module.exports = connectDB;
