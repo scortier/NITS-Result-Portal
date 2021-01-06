@@ -1,0 +1,533 @@
+[33mcommit f18bc5a2209a17863fbb518dad0e7a856c7911d4[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Wed Jan 6 19:12:33 2021 +0530
+
+    dev env connect.js
+
+[33mcommit 98079052274e1acca663e6dcc45adb9ceb69dc0e[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Jan 4 14:39:36 2021 +0530
+
+    resolved css_dashboard/dashborad_styles.css
+
+[33mcommit 5de079bbc515460685f8b304b9e484711995b8bb[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Jan 4 14:29:57 2021 +0530
+
+    rsolved conflict
+
+[33mcommit 5905a6f087f7e8c23d6d99149bd325732daf2117[m
+Merge: ca992f3 f5699bd
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Jan 4 14:28:42 2021 +0530
+
+    Merge branch 'dev' of https://github.com/Jitulteron7/NITS-Result-Portal into dev
+
+[33mcommit ca992f306279de120338ae8cf072823bcb8111d6[m
+Merge: 582494a 1ff65f1
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Jan 4 14:25:07 2021 +0530
+
+    update
+
+[33mcommit 582494a74b4386ff9592f62bd8a20d48e3bbb351[m[33m ([m[1;32mSaurav1905-dev[m[33m)[m
+Merge: 250a12d 2ec7b06
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Jan 4 14:18:28 2021 +0530
+
+    dashborad.css updated
+
+[33mcommit 1ff65f1cb5b930823796aa43cf91a38a8c7b07fd[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Jan 4 14:11:34 2021 +0530
+
+    updated
+
+[33mcommit f5699bd7ff750311649facca8052056133cc03bf[m
+Merge: 1f3b6d5 250a12d
+Author: Jitul Teron <58761652+Jitulteron7@users.noreply.github.com>
+Date:   Mon Jan 4 13:56:41 2021 +0530
+
+    Merge pull request #4 from scortier/dev
+    
+    update from scortier repo
+
+[33mcommit 1f3b6d5350c77ecfd08b06eb727609084253ab23[m
+Merge: 5871f59 980030c
+Author: Jitul Teron <58761652+Jitulteron7@users.noreply.github.com>
+Date:   Mon Jan 4 13:55:07 2021 +0530
+
+    Merge pull request #3 from KaviiSuri/dev
+    
+    update from original repo
+
+[33mcommit 250a12db237281e82af2061e4d3f5e824711963c[m
+Merge: ced685f f27d3f0
+Author: Aditya Singh Sisodiya <onlytoaditya@gmail.com>
+Date:   Mon Jan 4 12:51:18 2021 +0530
+
+    Merge pull request #46 from reeyah/dev
+    
+    Single Line footer added to login and index pages
+
+[33mcommit f27d3f0bf5d54f3c1817b45339a9f5276a2dfa49[m
+Author: Reeya Hazarika <reeyahazarika@gmail.com>
+Date:   Mon Jan 4 12:48:05 2021 +0530
+
+    single line footer added
+
+[33mcommit ced685fc67e48a797ad0efb65e25248562c41c69[m
+Merge: 4699929 eb31504
+Author: Aditya Singh Sisodiya <onlytoaditya@gmail.com>
+Date:   Mon Jan 4 12:47:23 2021 +0530
+
+    Merge pull request #42 from gauravdas014/profile-img-change
+    
+    Profile img change
+
+[33mcommit 4699929c01d0a6ed1e68813f01d691946e70afd0[m
+Merge: 839a957 f2c3fb3
+Author: Aditya Singh Sisodiya <onlytoaditya@gmail.com>
+Date:   Mon Jan 4 12:42:36 2021 +0530
+
+    Merge pull request #45 from aditya2712/adi
+    
+    made admin table responsive
+
+[33mcommit 463a0b31d7de79e95496fdc931b5f0367c7c0ef3[m
+Author: Reeya Hazarika <reeyahazarika@gmail.com>
+Date:   Mon Jan 4 00:14:42 2021 +0530
+
+    partial footer linked to every page
+
+[33mcommit f2c3fb31aed786e967e61c96fe88578fb6d15fd5[m
+Author: Aditya Agarwal <aditya.agarwal.20012712@gmail.com>
+Date:   Sun Jan 3 23:26:42 2021 +0530
+
+    made admin table responsive
+
+[33mcommit 2ec7b06d0137dcd931aa473890a210211038fe93[m
+Author: Saurav Das <xaurvdas01@gmail.com>
+Date:   Sun Jan 3 22:27:44 2021 +0530
+
+    Update .gitignore
+
+[33mcommit 82439c3817c14b90623ae6a2d1037d225ad2aa85[m
+Author: Saurav Das <xaurvdas01@gmail.com>
+Date:   Sun Jan 3 21:09:15 2021 +0530
+
+    Create dashboard_styles_20210103210908.css
+
+[33mcommit c80e5a956186a38c4e43bfe5c6c73822fcbbcb66[m
+Author: Saurav Das <xaurvdas01@gmail.com>
+Date:   Sun Jan 3 21:06:48 2021 +0530
+
+    styles
+
+[33mcommit cf63b22f9b0f1ec6ac940cf9a556b84a0307a2d8[m
+Author: Saurav Das <xaurvdas01@gmail.com>
+Date:   Sun Jan 3 18:03:40 2021 +0530
+
+    table_alternate_color
+
+[33mcommit 83c3434b288fabf677340c4b38d4fbfedd523a2f[m
+Author: Saurav Das <xaurvdas01@gmail.com>
+Date:   Sun Jan 3 16:50:01 2021 +0530
+
+    styles
+
+[33mcommit 5d3db8ada7cce23824471e916800c8cac3fe31ba[m
+Author: Saurav Das <xaurvdas01@gmail.com>
+Date:   Sun Jan 3 16:46:49 2021 +0530
+
+    gitignore
+
+[33mcommit 5811e7b5bac0b673b243f3c295a949a36a9dd3f3[m
+Author: Saurav Das <xaurvdas01@gmail.com>
+Date:   Sun Jan 3 16:45:20 2021 +0530
+
+    header_tableSize
+    
+    Result portal header and table size fixed
+
+[33mcommit eb31504717533bb4966260641edc6befe677c224[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:34:20 2021 +0530
+
+    update action parameter in the img upload form
+
+[33mcommit c97f181617039d9440d9e4f8011482ff3625614f[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:31:02 2021 +0530
+
+    update .env.example
+
+[33mcommit 0d2788b5efe4958034c39466fa5738fd5b3c6a15[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:29:41 2021 +0530
+
+    give a proper name to the s3 bucket
+
+[33mcommit ebece67af96513982b6621427223e5add6b05506[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:28:41 2021 +0530
+
+    add fileUpload middleware function to the upload img route
+
+[33mcommit 6808b817b564c295fcb4c1a7025230a427b9b72e[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:25:54 2021 +0530
+
+    add util function to upload img to s3
+
+[33mcommit ab297b990a18b03a15ca2fd8ebb4f3c9c23f7ff9[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:22:54 2021 +0530
+
+    update route of img update
+
+[33mcommit 9cfd8f84680d359773b43a6fd5f987e69cc6f96f[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:22:18 2021 +0530
+
+    add controller function to update profile img
+
+[33mcommit 6536158038518455b817db404747200a21670ccc[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:15:51 2021 +0530
+
+    add route for changing profile img
+
+[33mcommit d66f5c872e2fc3406b23965d8f3b0a00c339e367[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:14:06 2021 +0530
+
+    add button for changing profile img
+
+[33mcommit b641f070d355b36ae9a4f8f028b3ad2bc0296f82[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:12:40 2021 +0530
+
+    wrapped the update profile img section in form tag
+
+[33mcommit b616731a6cb55ae40d83d7241509e2b098f9c2f1[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:10:43 2021 +0530
+
+    add conditional rendering of profile picture
+
+[33mcommit 62c963dbfbbb6b1bb4ea61629f533a5332feb1aa[m
+Author: Gaurav Das <gauravdas014@gmail.com>
+Date:   Sun Jan 3 11:06:36 2021 +0530
+
+    add profileImage to user schema
+
+[33mcommit 839a95790e21d7cd0f30e6f8dfd32e3b5d8e31fd[m
+Merge: 66a4450 9f92bd0
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Thu Nov 26 16:42:46 2020 +0530
+
+    Merge pull request #40 from aditya2712/adi
+    
+    made user settings page responsive.
+
+[33mcommit 9f92bd02c9b1875e398fb4ada991d7956aa70fd5[m
+Merge: 2f27e30 2b82789
+Author: Aditya Agarwal <aditya.agarwal.20012712@gmail.com>
+Date:   Thu Nov 26 12:49:19 2020 +0530
+
+    Merge branch 'adi' of https://github.com/aditya2712/NITS-Result-Portal into adi
+
+[33mcommit 2f27e3060915166d5e455a20bc65121fc037fbe0[m
+Author: Aditya Agarwal <aditya.agarwal.20012712@gmail.com>
+Date:   Thu Nov 26 12:44:31 2020 +0530
+
+    made user settings page responsive, added navigation pancake button on the top, and made the form responsive
+
+[33mcommit 2b82789a536a2c0f3c8635254c336536082dd9a4[m
+Author: Aditya Agarwal <aditya.agarwal.20012712@gmail.com>
+Date:   Thu Nov 26 12:44:31 2020 +0530
+
+    made user settings page responsive, added navigation pancake button on the top, and made the form responsive
+
+[33mcommit 66a4450591b93d7e81efa7d827c460b1aaac8c93[m
+Merge: 8e3c461 980030c
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Thu Nov 26 12:44:23 2020 +0530
+
+    Merge pull request #39 from KaviiSuri/dev
+    
+    Integrated File upload with frontend and added "Processing" in the upload button when uploading
+
+[33mcommit 980030c826875ed78c53cb787a1ae51235675d7a[m
+Author: KaviiSuri <surikavii@gmail.com>
+Date:   Wed Nov 25 21:42:28 2020 +0530
+
+    added Processing in upload button
+
+[33mcommit 58aa117572ccc48db4fd6ffc756eec3d3b9caf51[m
+Author: KaviiSuri <surikavii@gmail.com>
+Date:   Wed Nov 25 21:38:22 2020 +0530
+
+    integrated file upload, bugs left
+
+[33mcommit 8e3c461451d6797c1dd504fe6198464df5c40c86[m
+Merge: 0b1bb3c 37e35e7
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Wed Nov 25 19:45:37 2020 +0530
+
+    Merge pull request #38 from reverope/dev
+    
+    Added Dropdown on Sidebar and Illustration on the Blank Section
+
+[33mcommit 37e35e74980d85d4d91d07658dc18b5ee92cd431[m
+Merge: 1cb5dda 0b1bb3c
+Author: Shashwat Priyadarshy <shatish123456789@gmail.com>
+Date:   Wed Nov 25 19:15:14 2020 +0530
+
+    Merge branch 'dev' into dev
+
+[33mcommit 1cb5dda529469cd926398064e751138ab5c600cc[m
+Merge: 14425e9 77cdb3f
+Author: Reverope <shatish123456789@gmail.com>
+Date:   Wed Nov 25 19:06:59 2020 +0530
+
+    Merge branch 'dev' of https://github.com/reverope/NITS-Result-Portal into dev
+
+[33mcommit 14425e9107670dcc98eaa18642caf4f01094b939[m
+Author: Reverope <shatish123456789@gmail.com>
+Date:   Wed Nov 25 19:06:12 2020 +0530
+
+    Added Select Dropdown for Semesters
+
+[33mcommit 77cdb3f61cee4be5692ba322430d01c97e71ab9a[m
+Author: Reverope <shatish123456789@gmail.com>
+Date:   Wed Nov 25 18:54:03 2020 +0530
+
+    Added Select Dropdown for Semesters
+
+[33mcommit 0b1bb3c60765e96fbd19677ba9dc16d3948ba3e9[m
+Merge: 8e773d9 22e1207
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Wed Nov 25 15:43:53 2020 +0530
+
+    Merge pull request #36 from scortier/file-upload
+    
+    Featured File upload feature in result upload route
+
+[33mcommit 22e120744e3aaa76c012650e858a1da620121fa5[m[33m ([m[1;31mupstream/file-upload[m[33m)[m
+Merge: 02ab868 8e773d9
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Wed Nov 25 15:42:44 2020 +0530
+
+    Merge branch 'dev' of github.com:scortier/NITS-Result-Portal into file-upload
+
+[33mcommit 8e773d91c196f93900841e7011e303d7a47db8c7[m
+Merge: 84693ae 5871f59
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Wed Nov 25 15:42:23 2020 +0530
+
+    Merge pull request #35 from Jitulteron7/dev
+    
+    error fixed logout admin user flash added
+
+[33mcommit 02ab868fdc8f3b0cefefa5cee217bc66dcbb4b0a[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Wed Nov 25 15:38:41 2020 +0530
+
+    featured csv file upload in the result upload route
+
+[33mcommit 5871f591a0d9e1a2b908134e473fee927fcbedee[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Wed Nov 25 14:58:32 2020 +0530
+
+    logout error fixed
+
+[33mcommit 260bb7ad68509bb1f77b0ced1cfa6606f035f8b2[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Wed Nov 25 14:37:39 2020 +0530
+
+    logout flash
+
+[33mcommit ede6f927ae402791fb60705ce305520f223dfe05[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Wed Nov 25 14:31:21 2020 +0530
+
+    logout flash
+
+[33mcommit a5eba2d26d0e48e591c35f8d63ab731d1fd5d746[m
+Merge: 8aac7e1 84693ae
+Author: Shashwat Priyadarshy <shatish123456789@gmail.com>
+Date:   Wed Nov 25 13:42:54 2020 +0530
+
+    Merge pull request #6 from scortier/dev
+    
+    Dev
+
+[33mcommit 3e738b3d97c8984633398bfb93c7dbb8b59ed418[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Wed Nov 25 12:43:45 2020 +0530
+
+    flash css and functions added
+
+[33mcommit 84693ae20aaffdc443b934d9551395b8e00aaf51[m[33m ([m[1;31mupstream/master[m[33m)[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Wed Nov 25 00:23:16 2020 +0530
+
+    updated login failure redirect route
+
+[33mcommit e7804dc04f90f74326d8efcb60a32dafe5222e76[m
+Merge: c0ceacd b23e99b
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 23:26:48 2020 +0530
+
+    Merge pull request #32 from scortier/dev
+    
+    Merge dev to master
+
+[33mcommit b23e99b8277fe64f6dfc35d93fda101ae2c8ef59[m
+Merge: aeffe5c c0ceacd
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 23:26:04 2020 +0530
+
+    resolved index conflict
+
+[33mcommit aeffe5c2e36e4c5e217f8725f3497aa5a164f71f[m
+Merge: ab1269f 1766e8c
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 23:24:00 2020 +0530
+
+    Merge branch 'dev' of github.com:scortier/NITS-Result-Portal into dev
+
+[33mcommit ab1269f7cfde6aafda2ed922711503da48c83905[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 23:23:35 2020 +0530
+
+    updated admin login redirect
+
+[33mcommit 7aaa7663184edd18146eb2f6a1ce3e8727188353[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 17:07:59 2020 +0530
+
+    featured flash message setup
+
+[33mcommit c0ceacdb78083b5e5d17dcb05b4093a57556578a[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 16:43:06 2020 +0530
+
+    removed cors
+
+[33mcommit 4fd092d8b7d266c5e042122a65018c2e8ebc5207[m
+Merge: 265addb 1766e8c
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 16:41:20 2020 +0530
+
+    Merge pull request #31 from scortier/dev
+    
+    featured student result model along with admin auth
+
+[33mcommit 1766e8c61c61bc5039c3239f985b21d9067b6860[m
+Merge: 0abe134 265addb
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 16:40:46 2020 +0530
+
+    Merge branch 'master' into dev
+
+[33mcommit 0abe134d72b85ffb3c9d380784550e7d6b45f05a[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 16:32:43 2020 +0530
+
+    added cors module
+
+[33mcommit e9cf2c9025d6d7d7390cee16bcb49ff8e6249fd0[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Tue Nov 24 16:18:20 2020 +0530
+
+    removed unnecessary logs
+
+[33mcommit 45cca4f9f6e56dadd64b8a101665a0dec45af2ae[m
+Merge: db25c81 e5b257e
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 23:24:58 2020 +0530
+
+    Merge pull request #30 from scortier/resultModel
+    
+    Featured Result model
+
+[33mcommit e5b257ecc0d3a6f0c241154b11c6f46328116310[m
+Merge: 2cc57a5 db25c81
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 23:24:35 2020 +0530
+
+    fixed merge conflict in admin controller
+
+[33mcommit db25c8166a2c4fed1f0ae6a8c496ff85ff3baa32[m
+Merge: d0ff59e 1851741
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 20:07:26 2020 +0530
+
+    Merge pull request #29 from Jitulteron7/dev
+    
+    adminAuth.js adminAuth function modified
+
+[33mcommit 18517418677c42566aaa5a1bab9160163c5aaeb1[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Nov 23 19:40:16 2020 +0530
+
+    adminAuth.js adminAuth function modified
+
+[33mcommit d0ff59e3cfd78d9cf22e891e3ae779df0a8a0423[m
+Merge: 3cc3e87 444f3ae
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 19:21:04 2020 +0530
+
+    Merge pull request #28 from Jitulteron7/dev
+    
+    middleware admin logged in or not and all admin router.get imported from controller
+
+[33mcommit 2cc57a5698afd7809b90edd489d2b6fcc746ca10[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 18:30:06 2020 +0530
+
+    fixed result upload route and result model bugs
+
+[33mcommit 444f3ae4dd332a5c25e9930b14a239e144932a8a[m
+Author: Jitul Teron <jitulteron9@gmail.com>
+Date:   Mon Nov 23 18:25:04 2020 +0530
+
+    middleware admin logged in or not and all admin router.get imported from controller
+
+[33mcommit bff59c25a8b623a3e24f5ea8cfcf5c687ad11312[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 16:51:38 2020 +0530
+
+    added result model and result upload routes
+
+[33mcommit 8aac7e14b87f3789c6f0ec4846250bcc832c7c89[m
+Merge: 73c1584 3cc3e87
+Author: Reverope <shatish123456789@gmail.com>
+Date:   Mon Nov 23 14:56:53 2020 +0530
+
+    Merge remote-tracking branch 'upstream/dev' into dev
+
+[33mcommit 3cc3e87847bf852b3dcc009ede6a2f4bff63d5da[m
+Author: sameer_99 <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 14:17:20 2020 +0530
+
+    fixed admin login page get route
+
+[33mcommit 1dfd195ba9ba32c9b1ca3a596b968e9e2cc3fc1f[m
+Merge: 2f19607 552d4f6
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 14:01:58 2020 +0530
+
+    Merge pull request #26 from Jitulteron7/dev
+    
+    admin and owner login page and front end connection with backend
+
+[33mcommit 552d4f6b048f683f6918e01e4423503a4b0cde99[m
+Merge: 24c606e 2f19607
+Author: Sameer Shrivastava <sameershrivastava46@gmail.com>
+Date:   Mon Nov 23 14:01:43 2020 +0530
+
+    Merge branch 'dev' into dev
