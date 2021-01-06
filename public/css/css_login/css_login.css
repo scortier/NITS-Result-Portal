@@ -237,6 +237,13 @@ main {
   opacity: 0.9;
 }
 
+/* footer styles */
+footer {
+  position: relative;
+  font-size: 14px;
+}
+
+
 @media (max-width: 1000px) {
   .login {
     width: 80%;
@@ -296,6 +303,16 @@ main {
   }
   .forgot label {
     text-align: center;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px){
+  footer {
+    font-size: 9px;
   }
 }
 /*# sourceMappingURL=css_login.css.map */
