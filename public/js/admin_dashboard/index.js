@@ -13,30 +13,41 @@ const sendForm = (formData) => {
 
 const addRow = () => {
     console.log('clicked')
-    count += 1;
-    let row_template = /*html*/`<tr>
-    <td><form 
-        class="row-form" 
-        id="row${count}"
-        onkeydown="return event.key != 'Enter';"
-        accept=".csv"
-        enctype="multipart/form-data"
-        ></form>
-    </td>
-    <td class="mdl-data-table__cell--non-numeric">
-        <div class="input-field">
-           <input
-                class="inputfile"
-                form="row${count}"
-                id="file${count}"
-                type="file"
-                name="csvfile"
-                data-multiple-caption="{count} files selected" 
-               />
-            <label for="file${count}">Choose a file</label>
-        </div>
-    </td>
-    <td>
+    count += 1
+    let row_template = `
+    <div class="row">
+    <div class="cell" data-title="Branch">
+    <div class="mdl-textfield mdl-js-textfield">
+        <select
+            class="mdl-textfield__input select"
+            name="branch"
+            id="branch${count}"
+            form="row${count}"
+        >
+            <option value="CE">
+                Civil Engineering
+            </option>
+            <option value="CSE">
+                Computer Science and Engineering
+            </option>
+            <option value="ECE">
+                Electronics and Communication
+                Engineering
+            </option>
+            <option value="EIE">
+                Electronics and Instrumentation
+                Engineering
+            </option>
+            <option value="EE">
+                Electrical Engineering
+            </option>
+            <option value="ME">
+                Mechanical Engineering
+            </option>
+        </select>
+    </div>
+    </div>    
+    <div class="cell" data-title="Year">
         <div class="mdl-textfield mdl-js-textfield">
             <input
                 class="mdl-textfield__input year"
@@ -48,17 +59,17 @@ const addRow = () => {
             />
            
         </div>
-    </td>
-    <td>
+    </div>
+    <div class="cell" data-title="Semester">
         <div
             class="sem-select mdl-textfield mdl-js-textfield"
         >
             <select
                 form="row${count}"
-                class="mdl-textfield__input"
+                class="mdl-textfield__input select"
                 name="sem"
                 id="sem${count}"
-            >
+            >   <span class="focus"></span>
                 <option value="1">1st</option>
                 <option value="2">2nd</option>
                 <option value="3">3rd</option>
@@ -68,40 +79,31 @@ const addRow = () => {
                 <option value="7">7th</option>
                 <option value="8">8th</option>
             </select>
+   
         </div>
-    </td>
-    <td>
-        <div class="mdl-textfield mdl-js-textfield">
-            <select
-                class="mdl-textfield__input"
-                name="branch"
-                id="branch${count}"
-                form="row${count}"
-            >
-                <option value="CE">
-                    Civil Engineering
-                </option>
-                <option value="CSE">
-                    Computer Science and Engineering
-                </option>
-                <option value="ECE">
-                    Electronics and Communication
-                    Engineering
-                </option>
-                <option value="EIE">
-                    Electronics and Instrumentation
-                    Engineering
-                </option>
-                <option value="EE">
-                    Electrical Engineering
-                </option>
-                <option value="ME">
-                    Mechanical Engineering
-                </option>
-            </select>
-        </div>
-    </td>
-    </tr>`
+    </div>
+    <div class="cell" data-title="File">
+    <div class="input-field">
+       <input
+            class="inputfile"
+            form="row${count}"
+            id="file${count}"
+            type="file"
+            name="csvfile"
+            data-multiple-caption="{count} files selected" 
+           />
+        <label for="file${count}">Choose a file</label>
+    </div>
+    </div>
+    <div class="cell" data-title="" >
+    <form 
+        class="row-form" 
+        id="row${count}"
+        onkeydown="return event.key != 'Enter';"
+        accept=".csv"
+        ></form>
+    </div>
+    </div>`
 
     tbodyElem.insertAdjacentHTML('beforeend', row_template)
 
