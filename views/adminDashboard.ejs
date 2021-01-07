@@ -39,7 +39,6 @@
         <!-- <link rel="shortcut icon" href="/images/favicon.png" /> -->
         <link rel="shortcut icon" href="/images/user.jpg" />
 
-
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
@@ -52,6 +51,7 @@
             rel="stylesheet"
             href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css"
         />
+        <link rel="stylesheet" href="/css/css_global.css" />
         <link
             rel="stylesheet"
             href="../css/css_dashboard/dashboard_styles.css"
@@ -78,18 +78,21 @@
                     <p>Signed in as role: <b>owner</b></p>
                 </header>
                 <nav class="demo-navigation mdl-navigation">
-                    <a class="mdl-navigation__link" href="/settings"
+                    <a class="mdl-navigation__link" href="#"
                         ><i class="material-icons" role="presentation"
                             >settings</i
                         >Create Admin</a
                     >
+                    <div
+                        class="mdl-layout-spacer"
+                        style="max-height: 60% !important"
+                    ></div>
                     <a class="mdl-navigation__link" href="/admin/logout"
                         ><i class="material-icons" role="presentation"
                             >account_circle</i
                         >Logout</a
                     >
 
-                    <div class="mdl-layout-spacer"></div>
                     <a class="mdl-navigation__link" href=""
                         ><i class="material-icons" role="presentation"
                             >help_outline</i
@@ -100,37 +103,34 @@
 
             <main class="mdl-layout__content mdl-color--grey-100">
                 <div class="table-container">
-                    <table
-                        class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp"
-                    >
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th class="mdl-data-table__cell--non-numeric">
-                                    File
-                                </th>
-                                <th>Year</th>
-                                <th>Sem</th>
-                                <th>Branch</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody"></tbody>
-                    </table>
-                    <button
-                        id="add-row"
-                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored white"
-                    >
-                        Add More Files
-                    </button>
-                    <button
-                        id="submit-all"
-                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent white"
-                    >
-                        Upload All Files
-                    </button>
+                    <div class="table" id="tbody">
+                        <div class="row header">
+                            <div class="cell">Branch</div>
+                            <div class="cell">Year</div>
+                            <div class="cell">Semester</div>
+                            <div class="cell">File</div>
+                            <div class="cell"></div>
+                        </div>
+                    </div>
                 </div>
             </main>
+            <div class="flexbuttons">
+                <button
+                    id="add-row"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored white"
+                >
+                    Add More Files
+                </button>
+                <button
+                    id="submit-all"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent white"
+                >
+                    Upload All Files
+                </button>
+            </div>
+            <%- include('partials/footer.ejs') %>
         </div>
+
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script src="/js/admin_dashboard/index.js"></script>
         <script>
@@ -144,8 +144,6 @@
             src="about:blank"
             style="display: none"
         ></iframe>
-
-        <%- include('partials/footer.ejs') %>
     </body>
     <script>
         // -----------------------------------------------------------------------------

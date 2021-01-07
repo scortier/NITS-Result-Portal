@@ -6,15 +6,19 @@
     box-sizing: border-box;
 }
 .demo-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 24px;
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    object-fit: cover;
 }
 .demo-layout .mdl-layout__header .mdl-layout__drawer-button {
     color: rgba(0, 0, 0, 0.54);
 }
 .mdl-layout__drawer .avatar {
     margin-bottom: 16px;
+}
+.mdl-layout-spacer {
+    max-height: 10vh !important;
 }
 .demo-drawer {
     border: none;
@@ -309,9 +313,9 @@ main {
 thead {
     background-color: #5ebeca;
 }
-thead th {
-    color: white !important;
-}
+/*thead th {
+     color: white !important;
+}*/
 /* @media (max-width: 600px){
 
 } */
@@ -319,34 +323,13 @@ thead th {
     min-width: 2.8em;
 }
 
-#submit-all {
-    margin-top: 5px;
-}
-
-/* flash message sucess*/
-.sucess-flash-msg {
-    background-color: #1dd00c;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.2rem;
-}
-.error {
-    margin: 7px;
-}
-.cross {
-    position: absolute;
-    right: 100px;
-}
-.cross:hover {
-    cursor: pointer !important;
-}
+/*#submit-all {
+     margin-top: 5px; 
+}*/
 
 table {
     margin-top: 10vh;
-    height: 70vh;
+    height: auto;
     width: 50vw;
     border-collapse: separate !important;
     border: 3px solid white !important;
@@ -383,7 +366,9 @@ td {
     text-align: center;
     width: 100%;
 }
-
+input{
+    outline: none;
+}
 @media (max-width: 620px) {
     .mdl-layout__header-row h4 {
         width: 89%;
@@ -481,19 +466,130 @@ select option {
 .inputfile + label {
     cursor: pointer; /* "hand" cursor */
 }
-.inputfile:focus + label {
-    outline: 1px dotted #000;
-    outline: -webkit-focus-ring-color auto 5px;
-}
-.inputfile + label * {
-    pointer-events: none;
-}
-.inputfile:focus + label,
-.inputfile.has-focus + label {
-    outline: 1px dotted #000;
-    outline: -webkit-focus-ring-color auto 5px;
-}
 
 .white {
     color: white !important;
+}
+
+select::-ms-expand {
+    display: none;
+}
+.select {
+    position: relative;
+    display: grid;
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    /* border: 1px solid var(--offBlack1); */
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    align-items: center;
+    justify-self: end;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+.select::after {
+    content: '';
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+select,
+.select:after {
+    grid-area: select;
+}
+select:focus + .focus {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 2px solid var(--select-focus);
+    border-radius: inherit;
+}
+
+.table {
+    margin: 0 0 40px 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+}
+@media screen and (max-width: 580px) {
+    .table {
+        display: block;
+    }
+}
+
+.row {
+    display: table-row;
+    background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+    background: #e9e9e9;
+}
+.row.header {
+    font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+}
+.row.green {
+    background: #27ae60;
+}
+.row.blue {
+    background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+    .row {
+        padding: 14px 0 7px;
+        display: block;
+    }
+    .row.header {
+        padding: 0;
+        height: 6px;
+    }
+    .row.header .cell {
+        display: none;
+    }
+    .row .cell {
+        margin-bottom: 10px;
+    }
+    .row .cell:before {
+        margin-bottom: 3px;
+        content: attr(data-title);
+        min-width: 98px;
+        font-size: 10px;
+        line-height: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #969696;
+        display: block;
+    }
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+}
+@media screen and (max-width: 580px) {
+    .cell {
+        padding: 2px 16px;
+        display: block;
+    }
+}
+.flexbuttons {
+    display: flex;
+    padding: 1em;
+    justify-content: space-around;
+    width: 70%;
+    margin: 0 20%;
+}
+
+footer {
+    position: relative;
+    font-size: 14px;
+    z-index: 10;
 }
