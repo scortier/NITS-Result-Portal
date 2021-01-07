@@ -64,21 +64,60 @@
         <div
             class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header"
         >
-            <header
-                class="demo-header mdl-layout__header mdl-color--grey-100 pancake"
-            >
-                <div class="mdl-layout__header-row pancake"></div>
-            </header>
+        <header
+            class="demo-header mdl-layout__header mdl-color--grey-100 pancake"
+        >
+        <div class="mdl-layout__header-row pancake">
+        </div>
+      </header>
             <div class="demo-drawer mdl-layout__drawer">
                 <header class="demo-drawer-header">
+
                     <% if(user.profileImage){ %>
-                    <img src="<%= user.profileImage %>" class="demo-avatar" />
-                    <% } else{ %>
+                        <img src="<%= user.profileImage %>" class="demo-avatar" />
+                      <% } else{ %>  
                     <img src="/images/user.jpg" class="demo-avatar" />
-                    <% } %>
+                     <% } %>
 
                     <p class="userName"><%=user.name%></p>
-                    
+                    <!-- Custom select structure -->
+                    <p class="currentSem">Currenly viewing</p>
+                    <div class="select_mate" data-mate-select="active">
+                        <select name="" onclick="return false;" id="">
+                            <option value="">Select Semester</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="3">Semester 4</option>
+                            <option value="3">Semester 5</option>
+                            <option value="3">Semester 6</option>
+                            <option value="3">Semester 7</option>
+                            <option value="3">Semester 8</option>
+                        </select>
+                        <p
+                            class="selecionado_opcion"
+                            onclick="open_select(this)"
+                        ></p>
+                        <span
+                            onclick="open_select(this)"
+                            class="icon_select_mate"
+                            ><svg
+                                fill="#000000"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                                />
+                                <path d="M0-.75h24v24H0z" fill="none" />
+                            </svg>
+                        </span>
+                        <div class="cont_list_select_mate">
+                            <ul class="cont_select_int"></ul>
+                        </div>
+                    </div>
                     <!-- Custom select structure -->
                     <!-- <div class="demo-avatar-dropdown">
                         <span>Shashwat@gmail.com</span>
@@ -134,30 +173,20 @@
             <main class="mdl-layout__content mdl-color--grey-100">
                 <div class="settings">
                     <div class="container">
-                        <form
-                            action="/user/settings/profile/image/<%= user._id %>"
-                            enctype="multipart/form-data"
-                            method="POST"
-                        >
-                            <div class="profile_image">
-                                <div class="image_container">
-                                    <% if(user.profileImage){ %>
-                                    <img
-                                        src="<%= user.profileImage %>"
-                                        class="demo-avatar"
-                                    />
-                                    <% } else{ %>
-                                    <img
-                                        src="/images/user.jpg"
-                                        class="demo-avatar"
-                                    />
-                                    <% } %>
-                                </div>
-                            </div>
-                            <input type="file" name="profileImage" />
-                            <input type="submit" value="Change picture" />
-                        </form>
-                        <h4 class="heading">Change Password</h4>
+                 <form action="/user/settings/profile/image/<%= user._id %>" enctype="multipart/form-data" method="POST">
+                    <div class="profile_image">
+                        <div class="image_container">
+                            <% if(user.profileImage){ %>
+                                <img src="<%= user.profileImage %>" class="demo-avatar" />
+                              <% } else{ %>  
+                            <img src="/images/user.jpg" class="demo-avatar" />
+                             <% } %>
+                        </div>
+                    </div>
+                    <input class="custom-file-input" type="file" name="profileImage">
+                    <input class="file-submit" type="submit" value="Save picture">
+                 </form>
+                        <h4 align="center" class="heading">Change Password</h4>
                         <div class="profile_settings">
                             <form action="#" class="form" autocomplete="off">
                                 <div class="form_fieldItem">
@@ -201,9 +230,10 @@
                     </div>
                 </div>
             </main>
-            <%- include('partials/footer.ejs') %>
         </div>
         <script src="/js/admin_dashboard/dropdown.js"></script>
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+        <%- include('partials/footer.ejs') %>
     </body>
 </html>
