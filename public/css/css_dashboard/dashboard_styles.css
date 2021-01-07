@@ -615,4 +615,38 @@ footer {
     }
 }
 
+.flexbuttons {
+    display: flex;
+    padding: 1em;
+    justify-content: space-around;
+    width: 70%;
+    margin: 0 20%;
+}
 
+/*footer styles*/
+
+footer {
+    position: absolute;
+    font-size: 14px;
+    z-index: 10;
+}
+
+@media (max-width: 600px){
+    footer {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        font-size: 9px;
+        z-index:1 !important;   
+    }
+    .demo-drawer-header {
+        min-height: 45vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #383838;
+    }
+}
