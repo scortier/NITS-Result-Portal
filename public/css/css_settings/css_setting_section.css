@@ -24,7 +24,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 60rem;
-  width: 35%;
+  width: 37%;
   background-color: var(--dwhite);
 }
 
@@ -42,7 +42,8 @@
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  padding: 2rem 0rem;
+  margin-top: 2.5rem;
+  padding: 1rem 0rem;
 }
 
 .settings .container .profile_image .image_container {
@@ -135,6 +136,10 @@
   font-size: 1em;
 }
 
+.form input[type='file'] {
+  color: transparent;
+}
+
 .form input[type='text'],
 .form input[type='password'] {
   padding: 1em 1em;
@@ -168,7 +173,7 @@
   background-color: var(--primaryColor);
   color: var(--dwhite);
   border-radius: 5px;
-  margin: 2em 0;
+  margin: 1em 0;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -177,13 +182,16 @@
   opacity: 0.9;
 }
 
+.custom-file-input {
+  width: 90px;
+}
+
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }
 
 .custom-file-input::before {
   content: 'Select image';
-  display: inline-block;
   background: var(--primaryColor);
   border-radius: 3px;
   padding: 5px 8px;
@@ -194,11 +202,26 @@
   color: #fff;
   font-weight: 400;
   font-size: 10pt;
-  margin-left: 55%;
 }
 
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.submitInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.submitInput input {
+  margin: 10px;
 }
 
 @media (max-width: 1300px) {
