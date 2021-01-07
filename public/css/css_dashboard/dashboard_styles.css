@@ -327,27 +327,6 @@ thead {
      margin-top: 5px; 
 }*/
 
-/* flash message sucess*/
-.sucess-flash-msg {
-    background-color: #1dd00c;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.2rem;
-}
-.error {
-    margin: 7px;
-}
-.cross {
-    position: absolute;
-    right: 100px;
-}
-.cross:hover {
-    cursor: pointer !important;
-}
-
 table {
     margin-top: 10vh;
     height: auto;
@@ -387,7 +366,9 @@ td {
     text-align: center;
     width: 100%;
 }
-
+input{
+    outline: none;
+}
 @media (max-width: 620px) {
     .mdl-layout__header-row h4 {
         width: 89%;
@@ -499,7 +480,7 @@ select::-ms-expand {
     width: 100%;
     min-width: 15ch;
     max-width: 30ch;
-    border: 1px solid var(--offBlack1);
+    /* border: 1px solid var(--offBlack1); */
     border-radius: 0.25em;
     padding: 0.25em 0.5em;
     font-size: 1.25rem;
@@ -607,13 +588,12 @@ select:focus + .focus {
     margin: 0 20%;
 }
 
-/*footer styles*/
-
 footer {
-    position: absolute;
+    position: relative;
     font-size: 14px;
     z-index: 10;
 }
+
 
 @media (max-width: 600px){
     footer {
@@ -634,3 +614,5 @@ footer {
         color: #383838;
     }
 }
+
+
