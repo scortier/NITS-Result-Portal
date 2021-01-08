@@ -109,7 +109,7 @@ const addRow = () => {
 
     // console.log(document.getElementsByClassName('row-form'))
 }
-
+u
 const uploadAll = () => {
     if (confirm(`This will upload all ${count} file(s)?`)) {
         document.getElementById('submit-all').innerHTML = 'Processing...'

@@ -2,40 +2,40 @@ const mongoose = require('mongoose')
 
 const resultSchema = new mongoose.Schema(
     {
-        semester :{
+        semester: {
             type: Number,
-            required: true
+            required: true,
         },
-        year:{
+        year: {
             type: String,
-            required:true
+            required: true,
         },
-        branch :{
+        branch: {
             type: String,
-            required: true
+            required: true,
         },
-        student:{
+        student: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
-            required:true
+            required: true,
         },
-    
-        subjects :[
+
+        subjects: [
             {
                 subCode: String,
                 subName: String,
                 subCredit: String,
                 subGrade: String,
-                subPointer: Number
-            }
+                subPointer: Number,
+            },
         ],
         gp: {
             type: Number,
-            required: true
+            required: true,
         },
-        sgpa:{
+        sgpa: {
             type: Number,
-            required:true
+            required: true,
         },
     },
     {
