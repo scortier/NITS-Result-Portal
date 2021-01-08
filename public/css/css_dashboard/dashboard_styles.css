@@ -580,13 +580,6 @@ select:focus + .focus {
         display: block;
     }
 }
-.flexbuttons {
-    display: flex;
-    padding: 1em;
-    justify-content: space-around;
-    width: 70%;
-    margin: 0 20%;
-}
 
 footer {
     position: relative;
@@ -621,6 +614,7 @@ footer {
     justify-content: space-around;
     width: 70%;
     margin: 0 20%;
+    margin-bottom: 50px;
 }
 
 /*footer styles*/

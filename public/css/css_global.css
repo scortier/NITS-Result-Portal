@@ -47,6 +47,20 @@
     width: 100vw;
     z-index: 6;
 }
+.alert-flash-msg{
+    background-color: #d03a0c;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 6;
+}
 .error {
     margin: 7px;
 }
