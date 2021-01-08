@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 function connectDB() {
-    var url = process.env.MONGO_URL;
+    var url = process.env.MONGO_URL
     if (process.env.DB_MODE === 'local' || url === '' || !url) {
         url = 'mongodb://localhost:27017/NitsResultPortal'
         console.log('Attempting to connect to Local Mongodb at PORT 27017')
