@@ -64,7 +64,15 @@
         <div
             class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header"
         >
-      
+        
+        <%- include('partials/sucess.ejs') %>
+        <% if(flash){ %>
+            <div class="alert-flash-msg">
+              <i class="material-icons error">error</i>  <%= flash.message %>
+              <div  onclick="closeIt()" class="material-icons cross">clear</div>
+            </div>
+        <% } %>
+        
         <!-- <%- include('partials/sucess.ejs') %> -->
         <!-- <header
             class="demo-header mdl-layout__header mdl-color--grey-100 pancake"
@@ -206,9 +214,21 @@
         <script src="/js/upload.js"></script>
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script>
-            const closeIt = () => {
-                document.querySelector('.sucess-flash-msg').style.display =
-                    'none'
+            setTimeout(() => {
+                if(document.querySelector(".alert-flash-msg")==null){
+                    document.querySelector(".sucess-flash-msg").style.display="none";
+                }
+                else{
+                    document.querySelector(".alert-flash-msg").style.display="none";
+                }     
+            }, 5000)
+            const closeIt=()=>{
+                if(document.querySelector(".alert-flash-msg")==null){
+                    document.querySelector(".sucess-flash-msg").style.display="none";
+                }
+                else{
+                    document.querySelector(".alert-flash-msg").style.display="none";
+                }                    
             }
         </script>
         <%- include('partials/footer.ejs') %>

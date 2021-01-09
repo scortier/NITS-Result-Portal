@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
         },
         email: {
             type: String,
-            required: true,
+            // required: true,
         },
         cgpa: {
             type: Number,
@@ -82,14 +82,15 @@ userSchema.methods.toJSON = function () {
 
 userSchema.methods.checkAndUpdate=async function(currentPassword,newPassword){
     const user=this;
-    const isMatch = await bcrypt.compare(currentPassword, user.password)
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    console.log(isMatch);
    if(!isMatch){
-        throw new Error('Unable to login')
+        return isMatch
    }
    else{
     user.password=newPassword;
    await user.save();
-    return user;
+    return isMatch;
    }
 }
 userSchema.statics.findByCredentials = async function (sch_id, passowrd) {

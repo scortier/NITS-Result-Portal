@@ -56,7 +56,7 @@ exports.profile_get = async (req, res, next) => {
 
 exports.settings_get = async (req, res, next) => {
     try {
-        res.render('settings', { user: req.userInfo.user })
+        res.render('settings', { user: req.userInfo.user,flash:false })
     } catch (error) {
         console.error(error)
         next()
@@ -114,10 +114,19 @@ exports.editProfileCredentials = async (req, res) => {
         }else{
             const userinfo = await User.findById(req.params.userId)
             const user=await userinfo.checkAndUpdate(currentPassword,newPassword);
-            req.flash('message', 'Password changed sucessfully');
-            res.render('settings',{user:req.userInfo.user,
-                flashMessages: { message: req.flash('message') },
-            })
+            if(user==true){
+                req.flash('message', 'Password changed sucessfully');
+                res.render('settings',{user:req.userInfo.user,
+                    flash:false,
+                    flashMessages: { message: req.flash('message'),
+                     }
+                })
+            }else{
+                req.flash('message', 'Password is incorrect');
+                res.render('settings',{user:req.userInfo.user,
+                    flash: { message: req.flash('message') },
+                })
+            }
         }
 
   
