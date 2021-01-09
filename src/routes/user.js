@@ -17,4 +17,7 @@ router.post(
     userController.changeProfileImage
 )
 
+router.post('/forgotPassword', userController.forgotPassword)
+router.post('/resetPassword/:token', userController.resetPassword)
+
 module.exports = router
