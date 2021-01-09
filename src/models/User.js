@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const crypto = require('crypto')
 
 const userSchema = new mongoose.Schema(
     {
@@ -19,10 +20,16 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: [true, 'is required'],
         },
+        email: {
+            type: String,
+            required: true,
+        },
         cgpa: {
             type: Number,
             required: true,
         },
+        passwordResetToken: String,
+        passwordResetExpires: Date,
     },
     {
         timestamps: true,
@@ -37,6 +44,19 @@ userSchema.virtual('results', {
     localField: '_id',
     foreignField: 'student',
 })
+
+// generate passwordResetToken
+userSchema.methods.createPasswordResetToken = function () {
+    const resetToken = crypto.randomBytes(32).toString('hex')
+    this.passwordResetToken = crypto
+        .createHash('sha256')
+        .update(resetToken)
+        .digest('hex')
+
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000
+
+    return resetToken
+}
 
 // generateAuthToken
 userSchema.methods.generateAuthToken = async function () {
