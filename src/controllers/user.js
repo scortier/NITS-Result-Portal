@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const crypto = require('crypto')
 
 exports.login_get = async (req, res, next) => {
     try {
@@ -116,6 +117,34 @@ exports.forgotPassword = async (req, res) => {
     try {
         //
     } catch (err) {
-        //
+        user.passwordResetToken = undefined
+        user.passwordResetExpires = undefined
+        await user.save({ validateBeforeSave: false })
+        return res.status(500).json({
+            status: 'fail',
+            message: 'Error in sending email',
+        })
     }
+}
+
+exports.resetPassword = async (req, res) => {
+    const hashedToken = crypto
+        .createHash('sha256')
+        .update(req.params.token)
+        .digest('hex')
+
+    const user = await User.findOne({
+        passwordResetToken: hashedToken,
+        passwordResetExpires: { $gt: Date.now() },
+    })
+
+    if (!user) {
+        return res.send('No user found')
+    }
+    user.password = req.body.password
+    user.passwordResetToken = undefined
+    user.passwordResetExpires = undefined
+    await user.save()
+
+    // TODO: send jwt token to logged in user
 }
