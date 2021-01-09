@@ -365,6 +365,7 @@ td {
     font-size: 2rem;
     text-align: center;
     width: 100%;
+    margin-top:5em;
 }
 input{
     outline: none;
@@ -373,6 +374,7 @@ input{
     .mdl-layout__header-row h4 {
         width: 89%;
         font-size: 1.8rem;
+        margin-top: :5em;
     }
 
     .table-container {
