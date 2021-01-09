@@ -1,5 +1,5 @@
 const User = require('../models/User')
-
+const bycrypt=require("bcrypt")
 exports.login_get = async (req, res, next) => {
     try {
         req.flash('message', '')
@@ -92,6 +92,31 @@ exports.changeProfileImage = async (req, res) => {
         user.profileImage = req.file.location
         await user.save()
         res.render('./settings', { user })
+    } catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: err,
+        })
+    }
+}
+exports.editProfileCredentials = async (req, res) => {
+    try {
+        const {currentPassword,newPassword,confirmPassword}=req.body;
+        if(newPassword!==confirmPassword){
+            req.flash('message', 'New password does not match with the confrim password');
+            res.render('settings',{user:req.userInfo.user,
+                flash: { message: req.flash('message') },
+            })
+        }else{
+            const userinfo = await User.findById(req.params.userId)
+            const user=await userinfo.checkAndUpdate(currentPassword,newPassword);
+            req.flash('message', 'Password changed sucessfully');
+            res.render('settings',{user:req.userInfo.user,
+                flashMessages: { message: req.flash('message') },
+            })
+        }
+
+  
     } catch (err) {
         res.status(400).json({
             status: 'fail',

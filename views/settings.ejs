@@ -64,6 +64,8 @@
         <div
             class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header"
         >
+      
+        <!-- <%- include('partials/sucess.ejs') %> -->
         <!-- <header
             class="demo-header mdl-layout__header mdl-color--grey-100 pancake"
         >
@@ -149,13 +151,14 @@
                         </div>
                     </div>
                     <div class="submitInput">
-                        <input class="custom-file-input" type="file" name="profileImage">
+                        <button type="button" class="custom-file-input">Select Image</button>
+                        <input style="display: none;" class="fileselect" type="file" name="profileImage" required >
                         <input class="file-submit" type="submit" value="Save picture">
                     </div>
                  </form>
                         <h4 align="center" class="heading">Change Password</h4>
                         <div class="profile_settings">
-                            <form action="#" class="form" autocomplete="off">
+                            <form action="/user/settings/profile/edit/<%= user._id %>" method="POST"   class="form" autocomplete="off">
                                 <div class="form_fieldItem">
                                     <label for="fullName"
                                         >Current Password</label
@@ -164,17 +167,18 @@
                                         type="password"
                                         placeholder="Enter Current Password"
                                         name="currentPassword"
+                                        required
                                     />
                                 </div>
                                 <div class="form_fieldItem">
                                     <label for="scholarID">New Password</label>
-                                    <input type="password" name="newPassword" />
+                                    <input placeholder="Enter New Password" type="password" name="newPassword"  required/>
                                 </div>
                                 <div class="form_fieldItem">
                                     <label for="scholarID"
                                         >Confirm New Password</label
                                     >
-                                    <input type="password" />
+                                    <input placeholder="Enter Confirm Password" type="password" name="confirmPassword" required/>
                                 </div>
                                 <!-- <div class="form_fieldItem">
                                     <label>
@@ -198,9 +202,15 @@
                 </div>
             </main>
         </div>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="/js/upload.js"></script>
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
+        <script>
+            const closeIt = () => {
+                document.querySelector('.sucess-flash-msg').style.display =
+                    'none'
+            }
+        </script>
         <%- include('partials/footer.ejs') %>
     </body>
 </html>

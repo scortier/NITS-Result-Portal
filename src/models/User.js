@@ -10,18 +10,18 @@ const userSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            required: true,
+            // required: true,
         },
         profileImage: {
             type: String,
         },
         name: {
             type: String,
-            required: [true, 'is required'],
+            // required: [true, 'is required'],
         },
         cgpa: {
             type: Number,
-            required: true,
+            // required: true,
         },
     },
     {
@@ -60,6 +60,18 @@ userSchema.methods.toJSON = function () {
     return userObj
 }
 
+userSchema.methods.checkAndUpdate=async function(currentPassword,newPassword){
+    const user=this;
+    const isMatch = await bcrypt.compare(currentPassword, user.password)
+   if(!isMatch){
+        throw new Error('Unable to login')
+   }
+   else{
+    user.password=newPassword;
+   await user.save();
+    return user;
+   }
+}
 userSchema.statics.findByCredentials = async function (sch_id, passowrd) {
     const user = await User.findOne({
         sch_id,
@@ -76,6 +88,7 @@ userSchema.statics.findByCredentials = async function (sch_id, passowrd) {
 
 userSchema.pre('save', async function (next) {
     const user = this
+ 
     if (user.isModified('password')) {
         user.password = await bcrypt.hash(user.password, 8)
     }
