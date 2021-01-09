@@ -1,16 +1,16 @@
 const Admin = require('../models/admin')
 const jwt = require('jsonwebtoken')
 const forStudent = require('../utils/uploadResultUtil')
-const dataExtraction = require("../utils/dataExtraction")
+const dataExtraction = require('../utils/dataExtraction')
 const path = require('path')
 const File = require('../models/file')
 
 module.exports.OwnerLogin = async (req, res, next) => {
     const { username, password } = req.body
-    const ownerUsername = process.env.OWNER_USERNAME;
-    const ownerPassword = process.env.OWNER_PASSWORD;
-    console.log(req.body)
-    console.log(ownerUsername, ownerPassword)
+    const ownerUsername = process.env.OWNER_USERNAME
+    const ownerPassword = process.env.OWNER_PASSWORD
+    // console.log(req.body)
+    // console.log(ownerUsername, ownerPassword)
 
     try {
         if (username === ownerUsername && password === ownerPassword) {
@@ -29,7 +29,7 @@ module.exports.OwnerLogin = async (req, res, next) => {
                 maxAge: 24 * 60 * 60 * 1000,
             })
             // dashboard
-            req.flash('message','Logged in sucessfully')   
+            req.flash('message', 'Logged in sucessfully')
             res.redirect('/admin/dashboard')
         } else {
             const err = new Error('Invalid Owner Credetials')
@@ -45,7 +45,7 @@ module.exports.OwnerLogin = async (req, res, next) => {
 exports.AdminLogin = async (req, res, next) => {
     try {
         const { username, password } = req.body
-        
+
         let admin = await Admin.findByCredentials(username, password)
         const JWTtoken = await admin.generateAuthToken()
         admin = admin.toJSON()
@@ -53,14 +53,11 @@ exports.AdminLogin = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-            req.flash('message', 'Logged in sucessfully');   
-            res.redirect('/admin/dashboard')
-    
+        req.flash('message', 'Logged in sucessfully')
+        res.redirect('/admin/dashboard')
     } catch (error) {
-
         req.flash('message', 'Wrong username or password')
         res.render('adminLogin', { flash: { message: req.flash('message') } })
-        
     }
 }
 
@@ -79,7 +76,7 @@ exports.CreateAdmin = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-        // req.flash('message', 'logged in sucessfully');   
+        // req.flash('message', 'logged in sucessfully');
         // res.redirect('/admin/login')
     } catch (e) {
         next(e)
@@ -87,7 +84,7 @@ exports.CreateAdmin = async (req, res, next) => {
 }
 //  gets
 exports.adminLogin_get = async (req, res, next) => {
-    try{
+    try {
         req.flash('message', '')
         res.render('adminLogin', { flash: { message: req.flash('message') } })
     } catch (error) {
@@ -108,9 +105,7 @@ exports.ownerLogin_get = async (req, res, next) => {
 
 exports.dashBoardLogin_get = async (req, res, next) => {
     try {
-
         res.render('adminDashboard')
-
     } catch (error) {
         console.log(error)
         next()
@@ -132,13 +127,13 @@ exports.uploadResult_post = async (req, res, next) => {
         console.log(req.body)
         console.log('Started Controller')
         let { sem, branch, year } = req.body
-        console.log("Debug log:",req.file);
+        console.log('Debug log:', req.file)
         let csvfile = req.file
         const dbFile = await File.create({
             name: csvfile.filename,
             year: req.body.year,
             sem: parseInt(req.body.sem),
-            branch: req.body.branch
+            branch: req.body.branch,
         })
         let students = await dataExtraction(dbFile.name)
 

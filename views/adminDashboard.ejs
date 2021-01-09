@@ -85,7 +85,7 @@
                     >
                     <div
                         class="mdl-layout-spacer"
-                        style="max-height: 60% !important"
+                        style="max-height: 53% !important"
                     ></div>
                     <a class="mdl-navigation__link" href="/admin/logout"
                         ><i class="material-icons" role="presentation"
@@ -134,9 +134,16 @@
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script src="/js/admin_dashboard/index.js"></script>
         <script>
+            setTimeout(() => {
+                if(document.querySelector(".alert-flash-msg")==null){
+                    document.querySelector(".sucess-flash-msg").style.display="none";
+                }
+                else{
+                    document.querySelector(".alert-flash-msg").style.display="none";
+                }     
+            }, 5000);
             const closeIt = () => {
-                document.querySelector('.sucess-flash-msg').style.display =
-                    'none'
+                document.querySelector('.sucess-flash-msg').style.display = 'none'
             }
         </script>
         <iframe

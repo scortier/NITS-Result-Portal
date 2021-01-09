@@ -69,11 +69,13 @@ app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
 const User = require('./models/User.js')
 const { create } = require('domain')
 
-const createUser = async (sch_id, name, password) => {
+const createUser = async (sch_id, name, password, email, cgpa) => {
     try {
         let user = new User({
             sch_id,
             name,
+            email,
+            cgpa,
             password,
         })
 
@@ -82,5 +84,7 @@ const createUser = async (sch_id, name, password) => {
         console.log(error)
     }
 }
+
+// createUser('1912048', 'Gaurav Das', 'password', 'gauravdas014@gmail.com', '8')
 
 // createUser("1815133","sameer", "12345678")
