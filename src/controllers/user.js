@@ -99,3 +99,23 @@ exports.changeProfileImage = async (req, res) => {
         })
     }
 }
+
+exports.forgotPassword = async (req, res) => {
+    const user = await User.findOne({ email: req.body.email })
+    if (!user) {
+        res.status(400).json({
+            status: 'fail',
+            message: 'No such user exists',
+        })
+    }
+
+    const resetToken = user.createPasswordResetToken()
+    await user.save({ validateBeforeSave: false })
+
+    //TODO: Send password reset token to users email
+    try {
+        //
+    } catch (err) {
+        //
+    }
+}
