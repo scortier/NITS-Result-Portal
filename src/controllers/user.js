@@ -1,5 +1,5 @@
 const User = require('../models/User')
-const bycrypt=require("bcrypt")
+
 exports.login_get = async (req, res, next) => {
     try {
         req.flash('message', '')
