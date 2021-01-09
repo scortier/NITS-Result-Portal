@@ -137,7 +137,7 @@
 }
 
 .form input[type='file'] {
-  color: transparent;
+  display: none;
 }
 
 .form input[type='text'],
@@ -176,6 +176,8 @@
   margin: 1em 0;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  -webkit-box-shadow: 1px 2px 10px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 10px -2px rgba(0, 0, 0, 0.3);
 }
 
 .file-submit:hover {
@@ -183,29 +185,18 @@
 }
 
 .custom-file-input {
-  width: 90px;
-}
-
-.custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-
-.custom-file-input::before {
-  content: 'Select image';
-  background: var(--primaryColor);
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
+  padding: 1em 1em;
+  height: 42px;
+  background-color: #5ebeca;
+  border: 0px solid;
+  border-radius: 5px;
   color: #fff;
-  font-weight: 400;
-  font-size: 10pt;
+  -webkit-box-shadow: 1px 2px 10px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 10px -2px rgba(0, 0, 0, 0.3);
 }
 
-.custom-file-input:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+.custom-file-input:hover {
+  opacity: 0.9;
 }
 
 .submitInput {

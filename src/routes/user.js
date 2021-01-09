@@ -17,6 +17,11 @@ router.post(
     userController.changeProfileImage
 )
 
+router.post(
+    '/settings/profile/edit/:userId',
+    auth,
+    userController.editProfileCredentials
+)
 router.get('/forgotPassword', userController.getForgotPasswordForm)
 
 router.post('/forgotPassword', userController.forgotPassword)
