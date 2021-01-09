@@ -147,13 +147,10 @@ exports.forgotPassword = async (req, res) => {
                 </html>`,
             }
 
-            smtpTransport.sendMail(mailOptions, (error, response) => {
-                smtpTransport.close()
-                res.status(201).json({
-                    status: 'success',
-                    appointment: newAppointment,
-                })
-            })
+            // smtpTransport.sendMail(mailOptions, (error, response) => {
+            //     smtpTransport.close()
+            //     res.render('Sent')
+            // })
         } catch (err) {
             user.passwordResetToken = undefined
             user.passwordResetExpires = undefined
