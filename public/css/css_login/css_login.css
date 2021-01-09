@@ -195,6 +195,7 @@ main {
 }
 
 .form input[type='text'],
+.form input[type='email'],
 .form input[type='password'] {
   padding: 0.8em 0.8em;
   border: 1px solid;

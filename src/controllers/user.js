@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const crypto = require('crypto')
-const smtpTransport = require('../utils/email')
+// TODO: uncomment the smtpTransport
+// const smtpTransport = require('../utils/email')
 
 exports.login_get = async (req, res, next) => {
     try {
@@ -103,20 +104,29 @@ exports.changeProfileImage = async (req, res) => {
 }
 
 exports.getForgotPasswordForm = (req, res) => {
-    res.render('./forgotPassword')
+    res.render('./forgotPassword', { flash: { message: req.flash('message') } })
+}
+
+exports.getPasswordResetForm = async (req, res) => {
+    const user = await User.findOne({ sch_id: req.params.sch_id })
+    const sch_id = user.sch_id
+    const resetToken = req.params.token
+    res.render('./resetPassword', {
+        flash: { message: req.flash('message') },
+        sch_id,
+        resetToken,
+    })
 }
 
 exports.forgotPassword = async (req, res) => {
     const user = await User.findOne({ email: req.body.email })
     if (!user) {
-        return res.status(400).json({
-            status: 'fail',
-            message: 'No such user exists',
-        })
+        //TODO: send flash message
+        return res.send('No user found')
     }
     const email = req.body.email
     const sch_id = user.sch_id
-
+    console.log(user.passwordResetExpires)
     const dt = new Date(user.passwordResetExpires).getTime()
     if (
         (user.passwordResetToken && dt > Date.now()) ||
@@ -132,7 +142,7 @@ exports.forgotPassword = async (req, res) => {
                 to: `${email}`,
                 subject: 'Reset Password',
                 generateTextFromHTML: true,
-                html: `<!DOCTYPE html>
+                html: `<!DOCTYPE html>~
                 <html lang="en">
                 <head>
                     <meta charset="UTF-8">
@@ -146,7 +156,10 @@ exports.forgotPassword = async (req, res) => {
                 </body>
                 </html>`,
             }
-
+            res.render('dummyPasswordReset', {
+                sch_id,
+                resetToken,
+            })
             // smtpTransport.sendMail(mailOptions, (error, response) => {
             //     smtpTransport.close()
             //     res.render('Sent')
@@ -168,31 +181,36 @@ exports.forgotPassword = async (req, res) => {
 }
 
 exports.resetPassword = async (req, res) => {
-    const hashedToken = crypto
-        .createHash('sha256')
-        .update(req.params.token)
-        .digest('hex')
-    const user = await User.findOne({
-        sch_id: req.params.sch_id,
-        passwordResetToken: hashedToken,
-        passwordResetExpires: { $gt: Date.now() },
-    })
-    if (!user) {
-        return res.send('No user found')
+    try {
+        const hashedToken = crypto
+            .createHash('sha256')
+            .update(req.params.token)
+            .digest('hex')
+        const user = await User.findOne({
+            sch_id: req.params.sch_id,
+            passwordResetToken: hashedToken,
+            passwordResetExpires: { $gt: Date.now() },
+        })
+        if (!user) {
+            return res.send('No user found')
+        }
+
+        user.password = req.body.password
+        user.passwordResetToken = undefined
+        user.passwordResetExpires = undefined
+        await user.save()
+        const JWTtoken = await user.generateAuthToken()
+        // user = user.toJSON()
+        res.cookie('resultAuth', JWTtoken, {
+            maxAge: 24 * 60 * 60 * 1000,
+            httpOnly: false,
+        })
+        // req.flash('message', 'Logged in sucessfully')
+        res.render('profile', {
+            user,
+            flashMessages: { message: req.flash('message') },
+        })
+    } catch (err) {
+        res.send(err)
     }
-    user.password = req.body.password
-    user.passwordResetToken = undefined
-    user.passwordResetExpires = undefined
-    await user.save()
-    const JWTtoken = await user.generateAuthToken()
-    user = user.toJSON()
-    res.cookie('resultAuth', JWTtoken, {
-        maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: false,
-    })
-    req.flash('message', 'Logged in sucessfully')
-    res.render('profile', {
-        user,
-        flashMessages: { message: req.flash('message') },
-    })
 }

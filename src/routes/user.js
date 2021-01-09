@@ -20,6 +20,7 @@ router.post(
 router.get('/forgotPassword', userController.getForgotPasswordForm)
 
 router.post('/forgotPassword', userController.forgotPassword)
+router.get('/resetPassword/:sch_id/:token', userController.getPasswordResetForm)
 router.post('/resetPassword/:sch_id/:token', userController.resetPassword)
 
 module.exports = router
