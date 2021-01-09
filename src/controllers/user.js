@@ -101,6 +101,10 @@ exports.changeProfileImage = async (req, res) => {
     }
 }
 
+exports.getForgotPasswordForm = (req, res) => {
+    res.render('./forgotPassword')
+}
+
 exports.forgotPassword = async (req, res) => {
     const user = await User.findOne({ email: req.body.email })
     if (!user) {

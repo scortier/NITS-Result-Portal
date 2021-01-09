@@ -17,6 +17,8 @@ router.post(
     userController.changeProfileImage
 )
 
+router.get('/forgotPassword', userController.getForgotPasswordForm)
+
 router.post('/forgotPassword', userController.forgotPassword)
 router.post('/resetPassword/:token', userController.resetPassword)
 
