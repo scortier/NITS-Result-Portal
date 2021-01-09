@@ -108,26 +108,46 @@ exports.getForgotPasswordForm = (req, res) => {
 exports.forgotPassword = async (req, res) => {
     const user = await User.findOne({ email: req.body.email })
     if (!user) {
-        res.status(400).json({
+        return res.status(400).json({
             status: 'fail',
             message: 'No such user exists',
         })
     }
+    const dt = new Date(user.passwordResetExpires).getTime()
 
-    const resetToken = user.createPasswordResetToken()
-    await user.save({ validateBeforeSave: false })
-
-    //TODO: Send password reset token to users email
-    try {
-        //
-    } catch (err) {
-        user.passwordResetToken = undefined
-        user.passwordResetExpires = undefined
+    if (
+        (user.passwordResetToken && dt > Date.now()) ||
+        !user.passwordResetToken
+    ) {
+        const resetToken = user.createPasswordResetToken()
         await user.save({ validateBeforeSave: false })
-        return res.status(500).json({
-            status: 'fail',
-            message: 'Error in sending email',
-        })
+        try {
+            //TODO: change this url before going to production
+            // res.send(`http://localhost:5000/user/resetPassword/${resetToken}`)
+            res.send('Done')
+        } catch (err) {
+            user.passwordResetToken = undefined
+            user.passwordResetExpires = undefined
+            await user.save({ validateBeforeSave: false })
+            return res.status(500).json({
+                status: 'fail',
+                message: 'Error in sending email',
+            })
+        }
+    } else {
+        try {
+            //TODO: change this url before going to production
+            // res.send(`http://localhost:5000/user/resetPassword/${resetToken}`)
+            res.send('Done')
+        } catch (err) {
+            user.passwordResetToken = undefined
+            user.passwordResetExpires = undefined
+            await user.save({ validateBeforeSave: false })
+            return res.status(500).json({
+                status: 'fail',
+                message: 'Error in sending email',
+            })
+        }
     }
 }
 
@@ -141,14 +161,14 @@ exports.resetPassword = async (req, res) => {
         passwordResetToken: hashedToken,
         passwordResetExpires: { $gt: Date.now() },
     })
-
+    console.log(user)
     if (!user) {
         return res.send('No user found')
     }
-    user.password = req.body.password
-    user.passwordResetToken = undefined
-    user.passwordResetExpires = undefined
-    await user.save()
-
+    // user.password = req.body.password
+    // user.passwordResetToken = undefined
+    // user.passwordResetExpires = undefined
+    // await user.save()
+    res.send('Done')
     // TODO: send jwt token to logged in user
 }
