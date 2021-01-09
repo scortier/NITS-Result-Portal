@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const crypto = require('crypto')
+const smtpTransport = require('../utils/email')
 
 exports.login_get = async (req, res, next) => {
     try {
@@ -113,8 +114,10 @@ exports.forgotPassword = async (req, res) => {
             message: 'No such user exists',
         })
     }
-    const dt = new Date(user.passwordResetExpires).getTime()
+    const email = req.body.email
+    const sch_id = user.sch_id
 
+    const dt = new Date(user.passwordResetExpires).getTime()
     if (
         (user.passwordResetToken && dt > Date.now()) ||
         !user.passwordResetToken
@@ -123,8 +126,34 @@ exports.forgotPassword = async (req, res) => {
         await user.save({ validateBeforeSave: false })
         try {
             //TODO: change this url before going to production
-            // res.send(`http://localhost:5000/user/resetPassword/${resetToken}`)
-            res.send('Done')
+            // res.send(`http://localhost:5000/user/resetPassword/${sch_id}/${resetToken}`)
+            const mailOptions = {
+                from: 'example@gmail.com',
+                to: `${email}`,
+                subject: 'Reset Password',
+                generateTextFromHTML: true,
+                html: `<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Email</title>
+                </head>
+                <body style="margin:0;padding:0;" >
+                <h2>
+                http://localhost:5000/user/resetPassword/${sch_id}/${resetToken}
+                </h2>
+                </body>
+                </html>`,
+            }
+
+            smtpTransport.sendMail(mailOptions, (error, response) => {
+                smtpTransport.close()
+                res.status(201).json({
+                    status: 'success',
+                    appointment: newAppointment,
+                })
+            })
         } catch (err) {
             user.passwordResetToken = undefined
             user.passwordResetExpires = undefined
@@ -135,19 +164,9 @@ exports.forgotPassword = async (req, res) => {
             })
         }
     } else {
-        try {
-            //TODO: change this url before going to production
-            // res.send(`http://localhost:5000/user/resetPassword/${resetToken}`)
-            res.send('Done')
-        } catch (err) {
-            user.passwordResetToken = undefined
-            user.passwordResetExpires = undefined
-            await user.save({ validateBeforeSave: false })
-            return res.status(500).json({
-                status: 'fail',
-                message: 'Error in sending email',
-            })
-        }
+        res.send(
+            'Email Already sent. Please wait for some time to resend email'
+        )
     }
 }
 
@@ -156,19 +175,27 @@ exports.resetPassword = async (req, res) => {
         .createHash('sha256')
         .update(req.params.token)
         .digest('hex')
-
     const user = await User.findOne({
+        sch_id: req.params.sch_id,
         passwordResetToken: hashedToken,
         passwordResetExpires: { $gt: Date.now() },
     })
-    console.log(user)
     if (!user) {
         return res.send('No user found')
     }
-    // user.password = req.body.password
-    // user.passwordResetToken = undefined
-    // user.passwordResetExpires = undefined
-    // await user.save()
-    res.send('Done')
-    // TODO: send jwt token to logged in user
+    user.password = req.body.password
+    user.passwordResetToken = undefined
+    user.passwordResetExpires = undefined
+    await user.save()
+    const JWTtoken = await user.generateAuthToken()
+    user = user.toJSON()
+    res.cookie('resultAuth', JWTtoken, {
+        maxAge: 24 * 60 * 60 * 1000,
+        httpOnly: false,
+    })
+    req.flash('message', 'Logged in sucessfully')
+    res.render('profile', {
+        user,
+        flashMessages: { message: req.flash('message') },
+    })
 }
