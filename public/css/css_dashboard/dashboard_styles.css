@@ -361,8 +361,12 @@ input{
     outline: none;
 }
 .deleteIcon{
+    padding: 3px;
+    border-radius: 12px;
+    background-color: rgb(236, 46, 46);
     cursor: pointer;
-    width: 40px;
+    width: 38px;
+    z-index: 10;
 }
 @media (max-width: 620px) {
     .mdl-layout__header-row h4 {
@@ -639,6 +643,9 @@ footer {
 @media screen and (max-width: 580px) {
     .deleteIcon{
         width: 40px !important;
+    }
+    .deleteRow{
+        padding-left: 45% !important;
     }
     .cell {
         padding: 2px 16px;
