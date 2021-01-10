@@ -12,7 +12,6 @@ const sendForm = (formData) => {
 }
 
 const addRow = () => {
-    console.log('clicked')
     count += 1
     let row_template = `
     <div class="row">
@@ -95,7 +94,7 @@ const addRow = () => {
         <label for="file${count}">Choose a file</label>
     </div>
     </div>
-    <div class="cell" data-title="" >
+    <div class="cell extra"  data-title="" >
     <form 
         class="row-form" 
         id="row${count}"
@@ -103,11 +102,12 @@ const addRow = () => {
         accept=".csv"
         ></form>
     </div>
+    <div class="cell deleteRow"  data-title="" >
+    <img class="deleteIcon" onclick="deleteRow()"  src= "https://image.flaticon.com/icons/png/128/3439/3439691.png" alt="X"> 
+    </div>
     </div>`
 
     tbodyElem.insertAdjacentHTML('beforeend', row_template)
-
-    // console.log(document.getElementsByClassName('row-form'))
 }
 
 const uploadAll = () => {
@@ -162,3 +162,11 @@ document.body.addEventListener('change', () => {
             label.innerHTML = fileName.substr(0, 20)
     })
 })
+
+function deleteRow(){
+    const row = event.target.parentNode;
+    if(count>1){
+        row.parentNode.remove(row);
+        count--;
+    }
+}

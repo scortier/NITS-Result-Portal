@@ -313,19 +313,9 @@ main {
 thead {
     background-color: #5ebeca;
 }
-/*thead th {
-     color: white !important;
-}*/
-/* @media (max-width: 600px){
-
-} */
 .sem-select {
     min-width: 2.8em;
 }
-
-/*#submit-all {
-     margin-top: 5px; 
-}*/
 
 table {
     margin-top: 10vh;
@@ -370,11 +360,19 @@ td {
 input{
     outline: none;
 }
+.deleteIcon{
+    padding: 3px;
+    border-radius: 12px;
+    background-color: rgb(236, 46, 46);
+    cursor: pointer;
+    width: 38px;
+    z-index: 10;
+}
 @media (max-width: 620px) {
     .mdl-layout__header-row h4 {
         width: 89%;
         font-size: 1.8rem;
-        margin-top: :5em;
+        margin-top: 5em;
     }
 
     .table-container {
@@ -520,12 +518,6 @@ select:focus + .focus {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     display: table;
 }
-@media screen and (max-width: 580px) {
-    .table {
-        display: block;
-    }
-}
-
 .row {
     display: table-row;
     background: #f6f6f6;
@@ -545,6 +537,9 @@ select:focus + .focus {
     background: #2980b9;
 }
 @media screen and (max-width: 580px) {
+    .table {
+        display: block;
+    }
     .row {
         padding: 14px 0 7px;
         display: block;
@@ -576,24 +571,11 @@ select:focus + .focus {
     padding: 6px 12px;
     display: table-cell;
 }
-@media screen and (max-width: 580px) {
-    .cell {
-        padding: 2px 16px;
-        display: block;
-    }
-}
 
 footer {
     position: relative;
     font-size: 14px;
     z-index: 10;
-}
-
-
-@media (max-width: 600px){
-    footer {
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -644,5 +626,29 @@ footer {
         align-items: center;
         justify-content: center;
         color: #383838;
+    }
+}
+@media (max-width: 800px){
+    .extra{
+        padding: 0px;
+        width: 0px;
+    }
+    .deleteIcon{
+        width: 30px;
+    }
+    .deleteRow{
+        padding: 1px ;
+    }
+}
+@media screen and (max-width: 580px) {
+    .deleteIcon{
+        width: 40px !important;
+    }
+    .deleteRow{
+        padding-left: 45% !important;
+    }
+    .cell {
+        padding: 2px 16px;
+        display: block;
     }
 }
