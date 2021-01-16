@@ -17,6 +17,9 @@
 .mdl-layout__drawer .avatar {
     margin-bottom: 16px;
 }
+.mdl-layout-spacer {
+    max-height: 10vh !important;
+}
 .demo-drawer {
     border: none;
 }
@@ -310,9 +313,9 @@ main {
 thead {
     background-color: #5ebeca;
 }
-thead th {
-    /* color: white !important; */
-}
+/*thead th {
+     color: white !important;
+}*/
 /* @media (max-width: 600px){
 
 } */
@@ -320,9 +323,9 @@ thead th {
     min-width: 2.8em;
 }
 
-#submit-all {
-    /* margin-top: 5px; */
-}
+/*#submit-all {
+     margin-top: 5px; 
+}*/
 
 /* flash message sucess*/
 .sucess-flash-msg {
@@ -602,4 +605,24 @@ select:focus + .focus {
     justify-content: space-around;
     width: 70%;
     margin: 0 20%;
+}
+
+/*footer styles*/
+
+footer {
+    position: absolute;
+    font-size: 14px;
+    z-index: 10;
+}
+
+@media (max-width: 600px){
+    footer {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        font-size: 9px;
+    }
 }

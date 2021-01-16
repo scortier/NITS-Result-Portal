@@ -15,7 +15,7 @@
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes" />
-        <link rel="icon" sizes="192x192" href="/images/android-desktop.png" />
+        <!-- <link rel="icon" sizes="192x192" href="/images/android-desktop.png" /> -->
 
         <!-- Add to homescreen for Safari on iOS -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -24,19 +24,21 @@
             name="apple-mobile-web-app-title"
             content="Material Design Lite"
         />
-        <link
+        <!-- <link
             rel="apple-touch-icon-precomposed"
             href="/images/ios-desktop.png"
-        />
+        /> -->
 
         <!-- Tile icon for Win8 (144x144 + tile color) -->
-        <meta
+        <!-- <meta
             name="msapplication-TileImage"
             content="images/touch/ms-touch-icon-144x144-precomposed.png"
-        />
+        /> -->
         <meta name="msapplication-TileColor" content="#3372DF" />
 
-        <link rel="shortcut icon" href="/images/favicon.png" />
+        <!-- <link rel="shortcut icon" href="/images/favicon.png" /> -->
+        <link rel="shortcut icon" href="/images/user.jpg" />
+
 
         <link
             rel="stylesheet"
@@ -109,6 +111,9 @@
                     </div>
                 </div>
             </main>
+<<<<<<< HEAD
+            <%- include('partials/footer.ejs') %>
+=======
             <div class="flexbuttons">
                 <button
                     id="add-row"
@@ -123,7 +128,9 @@
                     Upload All Files
                 </button>
             </div>
+>>>>>>> e4e5fa6a0b6d84a17dbac20f549f8f1bf1eb2bd2
         </div>
+        
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script src="/js/admin_dashboard/index.js"></script>
         <script>
@@ -138,7 +145,6 @@
             style="display: none"
         ></iframe>
 
-        <%- include('partials/footer.ejs') %>
     </body>
     <script>
         // -----------------------------------------------------------------------------
