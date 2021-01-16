@@ -10,6 +10,8 @@ router.get('/login', isLoggedIn, userController.login_get)
 router.get('/logout', auth, userController.logout_get)
 router.get('/profile', auth, userController.profile_get)
 router.get('/settings', auth, userController.settings_get)
+router.get('/contact', auth, userController.contact_get)
+router.get('/faq', auth, userController.faq_get)
 router.post(
     '/settings/profile/image/:userId',
     auth,

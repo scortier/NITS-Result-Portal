@@ -50,6 +50,22 @@ exports.profile_get = async (req, res, next) => {
         next()
     }
 }
+exports.contact_get = async (req, res, next) => {
+    try {
+        res.render('contact', { user: req.userInfo.user })
+    } catch (error) {
+        console.log(error)
+        next()
+    }
+}
+exports.faq_get = async (req, res, next) => {
+    try {
+        res.render('faq', { user: req.userInfo.user })
+    } catch (error) {
+        console.log(error)
+        next()
+    }
+}
 
 exports.settings_get = async (req, res, next) => {
     try {
