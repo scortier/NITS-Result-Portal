@@ -1,56 +1,60 @@
-.header__contact{
-    border-bottom: 1px solid #F5A085;
+.header__contact {
+    border-bottom: 1px solid #f5a085;
     font-size: 48px;
     font-weight: 500;
-    color: #7C7C7C;
+    color: #7c7c7c;
     min-height: 50px;
     width: 20%;
 }
-.contact__container{
+.contact__container {
     padding-left: 5%;
     padding-right: 5%;
     height: 100%;
     width: 100%;
 }
-.header__faq{
-    border-bottom: 1px solid #F5A085;
+.header__faq {
+    border-bottom: 1px solid #f5a085;
     font-size: 48px;
     font-weight: 500;
-    color: #7C7C7C;
+    color: #7c7c7c;
     min-height: 50px;
     width: 15%;
 }
-.contact__cards{
-    display: flex;
-    margin-top: 5%;   
-    min-height: 70vh ;
+.contact__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 5vh;
+    column-gap: 5.481283422459893vw;
+    padding-bottom: 5vh;
 }
-.contact__card{
+.mdl-layout__content {
+    min-height: 80vh;
+}
+.contact__card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    height:  36.737400530503976vh;
+    height: 36.737400530503976vh;
     width: 17.647058823529413vw;
-    background-color: #5EBECA;
+    background-color: #5ebeca;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
-    margin-right: 5%;
-    margin-bottom: 5%;
 }
-.card__top{
+.card__top {
     height: 35%;
     width: 100%;
     border-radius: 7px 7px 0 0;
-    background-color: #5EBECA;
+    background-color: #5ebeca;
     position: relative;
 }
-.card__description h4{
-    font-size: 12px!important;
+.card__description h4 {
+    font-size: 12px !important;
     margin: 0;
     text-align: center;
     width: 100%;
-line-height: 19.38px;
+    line-height: 19.38px;
 }
-.card__description{
+.card__description {
     background-color: white;
     border-radius: 0 0 7px 7px;
     height: 65%;
@@ -59,28 +63,103 @@ line-height: 19.38px;
     align-items: center;
     justify-content: center;
 }
-.card__description button{
+.card__description button {
     width: 80%;
     height: 15%;
-    border-radius:18px ;
+    border-radius: 18px;
     border: none;
     outline-width: 0;
     cursor: pointer;
-    background: #5EBECA;
+    background: #5ebeca;
     color: white;
     margin-top: 5%;
 }
-.card__image{
+.card__image {
     position: absolute;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #ffffff;
     box-sizing: border-box;
     border-radius: 49px;
     height: 9vh;
     width: 9vh;
-    background-image: url("../../images/prof.png");
+    background-image: url('../../images/prof.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     bottom: -3.5vh;
     left: 38%;
+}
+.faq__cards {
+    width: 100%;
+    min-height: 80vh;
+    position: relative;
+    padding-bottom: 5vh;
+}
+.faq__cardholder {
+    position: relative;
+    min-height: 70vh;
+    width: 100%;
+    background: #5ebeca;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+}
+.faq__questionholder {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5vh 0;
+}
+.faq__card {
+    margin-bottom: 5vh;
+    height: 20vh;
+    width: 80%;
+    background: #ffffff;
+    box-shadow: 2px 4px 11px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 3%;
+}
+
+.faq__textbox {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5%;
+    align-items: flex-end;
+    border-radius: 0 0 7px 7px;
+}
+.form__input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    font-size: 14px;
+    line-height: 21px;
+    color: #9e9e9e;
+    padding-bottom: 1vh;
+}
+.form__submit {
+    background: #5ebeca;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 18px;
+    width: 10%;
+    color: white;
+    height: 4vh;
+    cursor: pointer;
+}
+.faq__card h3 {
+    font-size: 14px;
+    margin: 0;
+    line-height: 21px;
+}
+.faq__card h3:first-child {
+    color: #f17e15;
 }
