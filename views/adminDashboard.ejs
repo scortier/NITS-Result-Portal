@@ -39,6 +39,7 @@
         <!-- <link rel="shortcut icon" href="/images/favicon.png" /> -->
         <link rel="shortcut icon" href="/images/user.jpg" />
 
+
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
@@ -51,7 +52,6 @@
             rel="stylesheet"
             href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css"
         />
-        <link rel="stylesheet" href="/css/css_global.css" />
         <link
             rel="stylesheet"
             href="../css/css_dashboard/dashboard_styles.css"
@@ -83,16 +83,13 @@
                             >settings</i
                         >Create Admin</a
                     >
-                    <div
-                        class="mdl-layout-spacer"
-                        style="max-height: 53% !important"
-                    ></div>
                     <a class="mdl-navigation__link" href="/admin/logout"
                         ><i class="material-icons" role="presentation"
                             >account_circle</i
                         >Logout</a
                     >
 
+                    <div class="mdl-layout-spacer"></div>
                     <a class="mdl-navigation__link" href=""
                         ><i class="material-icons" role="presentation"
                             >help_outline</i
@@ -109,12 +106,14 @@
                             <div class="cell">Year</div>
                             <div class="cell">Semester</div>
                             <div class="cell">File</div>
-                            <div class="cell extra"></div>
                             <div class="cell"></div>
                         </div>
                     </div>
                 </div>
             </main>
+<<<<<<< HEAD
+            <%- include('partials/footer.ejs') %>
+=======
             <div class="flexbuttons">
                 <button
                     id="add-row"
@@ -129,22 +128,15 @@
                     Upload All Files
                 </button>
             </div>
-            <%- include('partials/footer.ejs') %>
+>>>>>>> e4e5fa6a0b6d84a17dbac20f549f8f1bf1eb2bd2
         </div>
-
+        
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script src="/js/admin_dashboard/index.js"></script>
         <script>
-            setTimeout(() => {
-                if(document.querySelector(".alert-flash-msg")==null){
-                    document.querySelector(".sucess-flash-msg").style.display="none";
-                }
-                else{
-                    document.querySelector(".alert-flash-msg").style.display="none";
-                }     
-            }, 5000);
             const closeIt = () => {
-                document.querySelector('.sucess-flash-msg').style.display = 'none'
+                document.querySelector('.sucess-flash-msg').style.display =
+                    'none'
             }
         </script>
         <iframe
@@ -152,6 +144,7 @@
             src="about:blank"
             style="display: none"
         ></iframe>
+
     </body>
     <script>
         // -----------------------------------------------------------------------------
