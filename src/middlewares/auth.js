@@ -12,11 +12,11 @@ const auth = async (req, res, next) => {
         }
         //Remove token
         req.userInfo = {
-            user,
+            user
         }
         next()
     } catch (err) {
-        res.redirect('/user/login')
+        res.redirect("/user/login");
     }
 }
 
@@ -25,10 +25,10 @@ const isLoggedIn = async (req, res, next) => {
 
     if (token) {
         let userInfo = jwt.verify(token, process.env.JWT_SECRET)
-        if (userInfo) {
+        if(userInfo){
             let user = await User.findById(userInfo._id)
-            res.render('profile', { user })
-            return
+            res.render("profile",{user})
+            return 
         }
     }
     next()
